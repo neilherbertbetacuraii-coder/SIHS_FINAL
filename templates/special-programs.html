@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block title %}Special Programs - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Special Programs</h1>
+                <p class="lead text-muted">Enriching educational experiences beyond the classroom</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Special Programs</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Beyond the Classroom</h2>
+                <p class="lead text-muted">
+                    Our special programs provide unique opportunities for students to explore their interests,
+                    develop new skills, and discover their passions through hands-on learning experiences.
+                </p>
+            </div>
+        </div>
+
+        <!-- Featured Programs -->
+        <div class="row g-4 mb-5">
+            <!-- STEM Innovation Lab -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-robot text-white fa-lg"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-0">STEM Innovation Lab</h3>
+                        </div>
+                        <p class="text-muted mb-3">Grades 6-12 • After-school program</p>
+                        <p class="card-text text-muted mb-3">
+                            Advanced STEM education with robotics, coding, 3D printing, and engineering design.
+                            Students work on real-world projects and participate in national competitions.
+                        </p>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Robotics & AI</div>
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>3D Design</div>
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Coding Workshops</div>
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Science Fair Prep</div>
+                        </div>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arts Academy -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-palette text-white fa-lg"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-0">Arts Academy</h3>
+                        </div>
+                        <p class="text-muted mb-3">Grades 3-12 • Weekly sessions</p>
+                        <p class="card-text text-muted mb-3">
+                            Comprehensive arts education including visual arts, music, theater, and digital media.
+                            Professional artists and instructors guide students in developing their creative talents.
+                        </p>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Visual Arts</div>
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Music & Choir</div>
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Theater & Drama</div>
+                            <div class="col-6"><i class="fas fa-check text-success me-2"></i>Digital Media</div>
+                        </div>
+                        <button class="btn btn-success">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Programs Grid -->
+        <div class="row g-4">
+            <!-- Leadership Program -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-crown text-white fa-2x"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Leadership Program</h5>
+                        <p class="text-muted mb-3">Grades 9-12</p>
+                        <p class="card-text text-muted mb-3">
+                            Developing leadership skills through community service, student government,
+                            and peer mentoring programs.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-1"><i class="fas fa-star text-warning me-2"></i>Student Council</li>
+                            <li class="mb-1"><i class="fas fa-star text-warning me-2"></i>Community Service</li>
+                            <li><i class="fas fa-star text-warning me-2"></i>Peer Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Club -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-leaf text-white fa-2x"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Environmental Club</h5>
+                        <p class="text-muted mb-3">Grades 6-12</p>
+                        <p class="card-text text-muted mb-3">
+                            Promoting environmental awareness through conservation projects,
+                            recycling programs, and sustainability initiatives.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-1"><i class="fas fa-star text-info me-2"></i>Conservation Projects</li>
+                            <li class="mb-1"><i class="fas fa-star text-info me-2"></i>Gardening Program</li>
+                            <li><i class="fas fa-star text-info me-2"></i>Eco-friendly Campaigns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debate Club -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-comments text-white fa-2x"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Debate & Speech Club</h5>
+                        <p class="text-muted mb-3">Grades 7-12</p>
+                        <p class="card-text text-muted mb-3">
+                            Developing public speaking, critical thinking, and argumentation skills
+                            through competitive debate and speech competitions.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-1"><i class="fas fa-star text-danger me-2"></i>Policy Debate</li>
+                            <li class="mb-1"><i class="fas fa-star text-danger me-2"></i>Public Speaking</li>
+                            <li><i class="fas fa-star text-danger me-2"></i>Model UN</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports Programs -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-trophy text-white fa-2x"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Varsity Sports</h5>
+                        <p class="text-muted mb-3">Grades 9-12</p>
+                        <p class="card-text text-muted mb-3">
+                            Competitive athletic programs including basketball, soccer, volleyball,
+                            and track & field with professional coaching.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-1"><i class="fas fa-star text-success me-2"></i>Basketball & Soccer</li>
+                            <li class="mb-1"><i class="fas fa-star text-success me-2"></i>Volleyball & Tennis</li>
+                            <li><i class="fas fa-star text-success me-2"></i>Track & Field</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Program -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-music text-white fa-2x"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Music Program</h5>
+                        <p class="text-muted mb-3">Grades 3-12</p>
+                        <p class="card-text text-muted mb-3">
+                            Comprehensive music education including band, choir, orchestra,
+                            and individual instrument instruction.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-1"><i class="fas fa-star text-primary me-2"></i>Concert Band</li>
+                            <li class="mb-1"><i class="fas fa-star text-primary me-2"></i>Choir & Orchestra</li>
+                            <li><i class="fas fa-star text-primary me-2"></i>Private Lessons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Exchange -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-globe text-white fa-2x"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">International Exchange</h5>
+                        <p class="text-muted mb-3">Grades 10-12</p>
+                        <p class="card-text text-muted mb-3">
+                            Cultural exchange programs and study abroad opportunities
+                            to develop global perspectives and language skills.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>Study Abroad</li>
+                            <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>Language Immersion</li>
+                            <li><i class="fas fa-star text-secondary me-2"></i>Cultural Exchange</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Registration -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-light rounded-4 p-5">
+                    <h2 class="h1 fw-bold mb-4">Join Our Special Programs</h2>
+                    <p class="lead text-muted mb-4">
+                        Special programs enhance the regular curriculum and provide opportunities for students
+                        to explore their interests and develop new skills. Many programs have limited enrollment.
+                    </p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <a href="{{ url_for('how_to_apply') }}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus me-2"></i>Register for Programs
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="mailto:programs@{{ school.domain }}" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Contact Program Coordinator
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <small>Registration deadlines and requirements vary by program. Contact us for details.</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

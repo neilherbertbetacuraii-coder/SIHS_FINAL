@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Programs - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-white mb-2">Our Programs</h1>
+                <p class="lead text-white-50">Comprehensive educational programs designed for student success</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Programs</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Overview -->
+<section id="academic-programs" class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Program Overview</h2>
+                <p class="lead text-muted text-center">
+                    We offer a complete spectrum of educational programs from kindergarten through senior high school, 
+                    each meticulously designed to meet the developmental needs of our students.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Timeline Item -->
+            <div class="col-12">
+                <div class="d-flex gap-4">
+                    <div class="flex-shrink-0">
+                        <div class="badge badge-success rounded-circle p-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                            <i class="fas fa-child"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold">Kindergarten (Ages 3-5)</h5>
+                        <p class="text-muted">
+                            Our kindergarten program focuses on play-based learning with emphasis on social development, 
+                            early literacy, and numeracy skills. Children develop in a nurturing environment that encourages creativity and exploration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="d-flex gap-4">
+                    <div class="flex-shrink-0">
+                        <div class="badge badge-success rounded-circle p-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                            <i class="fas fa-pencil"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold">Elementary (Grades 1-6)</h5>
+                        <p class="text-muted">
+                            The elementary curriculum provides a strong foundation in English, Mathematics, Science, and Social Studies, 
+                            augmented with arts, physical education, and technology education.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="d-flex gap-4">
+                    <div class="flex-shrink-0">
+                        <div class="badge badge-success rounded-circle p-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold">Junior High (Grades 7-9)</h5>
+                        <p class="text-muted">
+                            Our junior high program introduces students to specialized subjects while maintaining a broad curriculum base. 
+                            We emphasize critical thinking, research skills, and character development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="d-flex gap-4">
+                    <div class="flex-shrink-0">
+                        <div class="badge badge-success rounded-circle p-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                            <i class="fas fa-university"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold">Senior High (Grades 10-12)</h5>
+                        <p class="text-muted">
+                            The senior high program prepares students for college and careers with advanced academics, 
+                            specialized tracks, and mentoring. We offer STEM, Arts, and Business-focused programs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detailed Programs -->
+<section id="curriculum" class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Program Details</h2>
+            </div>
+        </div>
+
+        <!-- Kindergarten Program -->
+        <div class="row g-5 mb-5">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Kindergarten Program</h3>
+                <h6 class="text-success fw-bold mb-3">Ages: 3-5 years</h6>
+                <p class="text-muted mb-3">
+                    Our kindergarten program emphasizes holistic development through play-based learning, 
+                    helping young children develop social skills, emotional intelligence, and foundational academic concepts.
+                </p>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Curriculum Highlights:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Early Literacy Development</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Numeracy Skills</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Social-Emotional Learning</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Creative Arts & Music</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Physical Development</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('enrollment') }}" class="btn btn-success">
+                    <i class="fas fa-user-plus"></i> Enroll in Kindergarten
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-child fa-4x mb-3 text-secondary"></i>
+                            <p>Kindergarten Program</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elementary Program -->
+        <div class="row g-5 mb-5">
+            <div class="col-lg-6 order-lg-2">
+                <h3 class="fw-bold mb-4">Elementary Program</h3>
+                <h6 class="text-success fw-bold mb-3">Grades: 1-6</h6>
+                <p class="text-muted mb-3">
+                    The elementary program builds a strong academic foundation while fostering curiosity and love for learning. 
+                    Students develop critical thinking skills and explore their interests through diverse subjects.
+                </p>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Subject Areas:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-book me-2 text-success"></i>English & Language Arts</li>
+                        <li class="mb-2"><i class="fas fa-book me-2 text-success"></i>Mathematics</li>
+                        <li class="mb-2"><i class="fas fa-book me-2 text-success"></i>Science & Nature</li>
+                        <li class="mb-2"><i class="fas fa-book me-2 text-success"></i>Social Studies</li>
+                        <li class="mb-2"><i class="fas fa-book me-2 text-success"></i>Arts, Music & PE</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('enrollment') }}" class="btn btn-success">
+                    <i class="fas fa-user-plus"></i> Enroll in Elementary
+                </a>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-pencil fa-4x mb-3 text-secondary"></i>
+                            <p>Elementary Program</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Junior High Program -->
+        <div class="row g-5 mb-5">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Junior High Program</h3>
+                <h6 class="text-success fw-bold mb-3">Grades: 7-9</h6>
+                <p class="text-muted mb-3">
+                    Our junior high program prepares students for the challenges ahead by offering advanced academics, 
+                    leadership opportunities, and extracurricular activities that build character and confidence.
+                </p>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Program Features:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-star text-success me-2"></i>Advanced Academics</li>
+                        <li class="mb-2"><i class="fas fa-star text-success me-2"></i>STEM Programs</li>
+                        <li class="mb-2"><i class="fas fa-star text-success me-2"></i>Student Leadership</li>
+                        <li class="mb-2"><i class="fas fa-star text-success me-2"></i>Sports & Clubs</li>
+                        <li class="mb-2"><i class="fas fa-star text-success me-2"></i>Character Education</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('enrollment') }}" class="btn btn-success text-white">
+                    <i class="fas fa-user-plus"></i> Enroll in Junior High
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-graduation-cap fa-4x mb-3 text-secondary"></i>
+                            <p>Junior High Program</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Senior High Program -->
+        <div class="row g-5">
+            <div class="col-lg-6 order-lg-2">
+                <h3 class="fw-bold mb-4">Senior High Program</h3>
+                <h6 class="text-success fw-bold mb-3">Grades: 10-12</h6>
+                <p class="text-muted mb-3">
+                    The senior high program is designed to prepare students for college and careers. 
+                    We offer specialized tracks and personalized mentoring to help each student achieve their goals.
+                </p>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Specialized Tracks:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>STEM Track</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Arts & Humanities</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Business & Commerce</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>College Preparation</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Career Counseling</li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('enrollment') }}" class="btn btn-success">
+                    <i class="fas fa-user-plus"></i> Enroll in Senior High
+                </a>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-university fa-4x mb-3 text-secondary"></i>
+                            <p>Senior High Program</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Special Programs Section -->
+<section id="special-programs" class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Special Programs & Activities</h2>
+                <p class="lead text-muted text-center">Beyond the classroom, we offer enriching programs</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Extracurricular Activities -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-basketball fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">Sports & Recreation</h5>
+                        <p class="card-text text-muted small">
+                            Basketball, Football, Volleyball, Tennis, Swimming and more
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clubs & Societies -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-users fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">Clubs & Societies</h5>
+                        <p class="card-text text-muted small">
+                            Debate, Science, Art, Music, Drama and Technology clubs
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Science Programs -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-flask fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">STEM Programs</h5>
+                        <p class="card-text text-muted small">
+                            Robotics, Coding, Science Projects and Innovation Labs
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Field Trips -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-bus fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">Field Trips</h5>
+                        <p class="card-text text-muted small">
+                            Educational excursions to museums, historical sites and nature reserves
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

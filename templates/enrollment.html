@@ -1,0 +1,753 @@
+{% extends "base.html" %}
+
+{% block title %}Enrollment - Torres Capitol College{% endblock %}
+
+{% block content %}
+<style>
+/* Enrollment Form Styles */
+.enrollment-container {
+    min-height: 100vh;
+    background: #f8f9fa;
+    padding: 2rem 0;
+}
+
+.enrollment-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.enrollment-header {
+    background: linear-gradient(135deg, #1a5f3e 0%, #28a745 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.enrollment-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.enrollment-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+.progress-container {
+    padding: 2rem;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e9ecef;
+    z-index: 1;
+}
+
+.progress-steps::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: 2px;
+    background: #28a745;
+    z-index: 2;
+    transition: width 0.3s ease;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    flex: 1;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid #e9ecef;
+    background: white;
+    color: #6c757d;
+}
+
+.step.active .step-circle {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.2);
+}
+
+.step.completed .step-circle {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.step.completed .step-circle::before {
+    content: '✓';
+    font-size: 1.1rem;
+}
+
+.step-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #6c757d;
+    text-align: center;
+}
+
+.step.active .step-label {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.form-container {
+    padding: 3rem 2rem;
+}
+
+.form-section {
+    display: none;
+}
+
+.form-section.active {
+    display: block;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a5f3e;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: #1a5f3e;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    background: white;
+    outline: none;
+}
+
+.form-control.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #28a745;
+    margin-top: 2px;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    color: #495057;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.checkbox-group label a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid;
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+    color: #155724;
+}
+
+.alert-error {
+    background: rgba(220, 53, 69, 0.1);
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-secondary {
+    padding: 0.875rem 2rem;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.btn-primary {
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, #1a5f3e 0%, #28a745 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    background: linear-gradient(135deg, #28a745 0%, #1a5f3e 100%);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .enrollment-wrapper {
+        margin: 1rem;
+        border-radius: 12px;
+    }
+
+    .enrollment-header {
+        padding: 2rem 1.5rem;
+    }
+
+    .enrollment-header h1 {
+        font-size: 2rem;
+    }
+
+    .progress-container {
+        padding: 1.5rem;
+    }
+
+    .progress-steps {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .progress-steps::before,
+    .progress-steps::after {
+        display: none;
+    }
+
+    .step {
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .step-circle {
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+
+    .step-label {
+        text-align: left;
+    }
+
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="enrollment-container">
+    <div class="enrollment-wrapper">
+        <!-- Header -->
+        <div class="enrollment-header">
+            <h1>Join San Isidro High School</h1>
+            <p>Begin your journey towards academic excellence. Be Isidorians!</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-steps" id="progressSteps">
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Personal Info</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Academic Info</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Documents</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Review</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Step 1: Personal Information -->
+            <div class="form-section active" id="step1">
+                <div class="section-header">
+                    <h2>Personal Information</h2>
+                    <p>Please provide your basic personal details</p>
+                </div>
+
+                <form id="personalForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" class="form-control" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="address">Address *</label>
+                        <input type="text" id="address" name="address" class="form-control" placeholder="Street address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code *</label>
+                            <input type="text" id="zipCode" name="zipCode" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a> *
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Academic Information -->
+            <div class="form-section" id="step2">
+                <div class="section-header">
+                    <h2>Academic Information</h2>
+                    <p>Tell us about your educational background</p>
+                </div>
+
+                <form id="academicForm">
+                    <div class="form-group full-width">
+                        <label for="program">Program of Interest *</label>
+                        <select id="program" name="program" class="form-control" required>
+                            <option value="">Select a Program</option>
+                            <option value="computer-science">Computer Science</option>
+                            <option value="business">Business Administration</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="education">Education</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="highSchool">High School Name *</label>
+                            <input type="text" id="highSchool" name="highSchool" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="graduationYear">Graduation Year *</label>
+                            <select id="graduationYear" name="graduationYear" class="form-control" required>
+                                <option value="">Select Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gpa">High School GPA</label>
+                            <input type="number" id="gpa" name="gpa" class="form-control" step="0.01" min="0" max="4.0" placeholder="e.g., 3.75">
+                        </div>
+                        <div class="form-group">
+                            <label for="testScores">Standardized Test Scores</label>
+                            <input type="text" id="testScores" name="testScores" class="form-control" placeholder="SAT/ACT scores (optional)">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="extracurricular">Extracurricular Activities</label>
+                        <textarea id="extracurricular" name="extracurricular" class="form-control" rows="4" placeholder="List your extracurricular activities, sports, clubs, etc."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Documents -->
+            <div class="form-section" id="step3">
+                <div class="section-header">
+                    <h2>Document Upload</h2>
+                    <p>Please upload the required documents</p>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>Document Requirements:</strong> Please upload clear, legible copies of the following documents. Maximum file size: 5MB per document.
+                </div>
+
+                <form id="documentsForm">
+                    <div class="form-group full-width">
+                        <label for="transcript">High School Transcript *</label>
+                        <input type="file" id="transcript" name="transcript" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <small class="text-muted">Accepted formats: PDF, JPG, PNG</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="diploma">High School Diploma/Certificate</label>
+                        <input type="file" id="diploma" name="diploma" class="form-control" accept=".pdf,.jpg,.jpeg,.png">
+                        <small class="text-muted">If not yet available, you can upload it later</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="recommendation">Letter of Recommendation</label>
+                        <input type="file" id="recommendation" name="recommendation" class="form-control" accept=".pdf,.doc,.docx">
+                        <small class="text-muted">Optional but recommended</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="photo">Passport-Style Photo</label>
+                        <input type="file" id="photo" name="photo" class="form-control" accept=".jpg,.jpeg,.png">
+                        <small class="text-muted">Recent photo with plain background</small>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: Review -->
+            <div class="form-section" id="step4">
+                <div class="section-header">
+                    <h2>Review Your Information</h2>
+                    <p>Please review all information before submitting</p>
+                </div>
+
+                <div id="reviewContent">
+                    <div class="alert alert-success">
+                        <strong>Ready to Submit!</strong> Please review your information below and click "Submit Application" to complete your enrollment.
+                    </div>
+
+                    <div class="review-section">
+                        <h4 style="color: #1a5f3e; margin-bottom: 1rem;">Personal Information</h4>
+                        <div id="personalReview"></div>
+                    </div>
+
+                    <div class="review-section" style="margin-top: 2rem;">
+                        <h4 style="color: #1a5f3e; margin-bottom: 1rem;">Academic Information</h4>
+                        <div id="academicReview"></div>
+                    </div>
+
+                    <div class="review-section" style="margin-top: 2rem;">
+                        <h4 style="color: #1a5f3e; margin-bottom: 1rem;">Documents</h4>
+                        <div id="documentsReview"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+            <button type="button" class="btn-secondary" id="prevBtn" style="display: none;">
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <div></div>
+            <button type="button" class="btn-primary" id="nextBtn">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Multi-step form functionality
+let currentStep = 1;
+const totalSteps = 4;
+
+function updateProgress() {
+    // Update step circles
+    document.querySelectorAll('.step').forEach((step, index) => {
+        const stepNum = index + 1;
+        step.classList.remove('active', 'completed');
+
+        if (stepNum < currentStep) {
+            step.classList.add('completed');
+        } else if (stepNum === currentStep) {
+            step.classList.add('active');
+        }
+    });
+
+    // Update progress bar
+    const progressBar = document.querySelector('.progress-steps::after');
+    if (progressBar) {
+        const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+        progressBar.style.width = progress + '%';
+    }
+
+    // Show/hide form sections
+    document.querySelectorAll('.form-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById('step' + currentStep).classList.add('active');
+
+    // Update buttons
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+
+    if (currentStep === totalSteps) {
+        nextBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+        nextBtn.classList.add('submit-btn');
+    } else {
+        nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
+        nextBtn.classList.remove('submit-btn');
+    }
+}
+
+function validateCurrentStep() {
+    const currentForm = document.getElementById('step' + currentStep).querySelector('form');
+    if (!currentForm) return true;
+
+    const requiredFields = currentForm.querySelectorAll('[required]');
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            isValid = false;
+        } else {
+            field.classList.remove('error');
+        }
+    });
+
+    return isValid;
+}
+
+function populateReview() {
+    // Personal Information
+    const personalData = new FormData(document.getElementById('personalForm'));
+    let personalHtml = '';
+    for (let [key, value] of personalData.entries()) {
+        const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        personalHtml += `<p><strong>${label}:</strong> ${value}</p>`;
+    }
+    document.getElementById('personalReview').innerHTML = personalHtml;
+
+    // Academic Information
+    const academicData = new FormData(document.getElementById('academicForm'));
+    let academicHtml = '';
+    for (let [key, value] of academicData.entries()) {
+        const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        academicHtml += `<p><strong>${label}:</strong> ${value}</p>`;
+    }
+    document.getElementById('academicReview').innerHTML = academicHtml;
+
+    // Documents
+    const documentsData = new FormData(document.getElementById('documentsForm'));
+    let documentsHtml = '';
+    for (let [key, value] of documentsData.entries()) {
+        if (value.name) {
+            documentsHtml += `<p><strong>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:</strong> ${value.name}</p>`;
+        }
+    }
+    document.getElementById('documentsReview').innerHTML = documentsHtml || '<p>No documents uploaded yet.</p>';
+}
+
+// Event listeners
+document.getElementById('nextBtn').addEventListener('click', () => {
+    if (!validateCurrentStep()) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    if (currentStep < totalSteps) {
+        currentStep++;
+        updateProgress();
+    } else {
+        // Submit form
+        alert('Application submitted successfully! We will contact you soon.');
+        // In a real application, you would submit the form data to the server
+    }
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentStep > 1) {
+        currentStep--;
+        updateProgress();
+    }
+});
+
+// Update review when reaching step 4
+document.addEventListener('DOMContentLoaded', () => {
+    updateProgress();
+
+    // Watch for step changes to populate review
+    const observer = new MutationObserver(() => {
+        if (currentStep === 4) {
+            populateReview();
+        }
+    });
+
+    observer.observe(document.getElementById('step4'), {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+});
+</script>
+{% endblock %}</content>
+<parameter name="filePath">c:\Users\Administrator\Downloads\SIHS_WEB_FINAL - Copy\templates\enrollment.html

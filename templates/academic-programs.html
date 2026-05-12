@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Academic Programs - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Academic Programs</h1>
+                <p class="lead text-muted">Comprehensive education from elementary to high school</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Academic Programs</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Educational Excellence</h2>
+                <p class="lead text-muted">
+                    Our comprehensive academic programs are designed to foster intellectual growth,
+                    critical thinking, and lifelong learning skills across all grade levels.
+                </p>
+            </div>
+        </div>
+
+        <!-- Program Cards -->
+        <div class="row g-4">
+            <!-- Elementary School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-school text-white fa-lg"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-0">Elementary School</h3>
+                        </div>
+                        <p class="text-muted mb-3">Grades 1-5</p>
+                        <p class="card-text text-muted mb-3">
+                            Building strong foundations in core subjects with emphasis on creativity,
+                            social skills, and character development.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Core subjects: Math, Science, English, Social Studies</li>
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Arts and Physical Education</li>
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Character education programs</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Small class sizes for personalized attention</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-graduation-cap text-white fa-lg"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-0">Middle School</h3>
+                        </div>
+                        <p class="text-muted mb-3">Grades 6-8</p>
+                        <p class="card-text text-muted mb-3">
+                            Transitioning to more independent learning with advanced coursework
+                            and leadership development opportunities.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Advanced core curriculum</li>
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Foreign language introduction</li>
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>STEM and arts electives</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Leadership and service programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-university text-white fa-lg"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-0">High School</h3>
+                        </div>
+                        <p class="text-muted mb-3">Grades 9-12</p>
+                        <p class="card-text text-muted mb-3">
+                            College preparatory program with diverse electives and real-world
+                            learning experiences to prepare for higher education.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>College preparatory curriculum</li>
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Advanced Placement courses</li>
+                            <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Career and technical education</li>
+                            <li><i class="fas fa-check text-success me-2"></i>College counseling and guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curriculum Highlights -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="h1 fw-bold text-center mb-5">Curriculum Highlights</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-3"><i class="fas fa-flask text-primary me-2"></i>STEM Education</h4>
+                                <p class="text-muted">
+                                    Our STEM program integrates science, technology, engineering, and mathematics
+                                    through hands-on projects, coding, robotics, and real-world problem-solving.
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-primary me-2"></i>Computer Science and Programming</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-primary me-2"></i>Advanced Mathematics</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-primary me-2"></i>Engineering Design</li>
+                                    <li><i class="fas fa-dot-circle text-primary me-2"></i>Scientific Research Methods</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-3"><i class="fas fa-palette text-success me-2"></i>Arts & Humanities</h4>
+                                <p class="text-muted">
+                                    Comprehensive arts education including visual arts, music, theater, and literature
+                                    to develop creativity, cultural awareness, and self-expression.
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-success me-2"></i>Visual Arts and Design</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-success me-2"></i>Music and Performing Arts</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-success me-2"></i>Literature and Writing</li>
+                                    <li><i class="fas fa-dot-circle text-success me-2"></i>World Languages and Cultures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Approach -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="bg-light rounded-4 p-5">
+                    <h2 class="h1 fw-bold text-center mb-4">Our Learning Approach</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-users fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="fw-bold">Collaborative Learning</h5>
+                            <p class="text-muted">Group projects and peer learning foster teamwork and communication skills</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-lightbulb fa-3x text-success"></i>
+                            </div>
+                            <h5 class="fw-bold">Critical Thinking</h5>
+                            <p class="text-muted">Problem-solving and analytical skills development through inquiry-based learning</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-globe fa-3x text-info"></i>
+                            </div>
+                            <h5 class="fw-bold">Global Perspective</h5>
+                            <p class="text-muted">International awareness and cultural understanding through diverse curriculum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

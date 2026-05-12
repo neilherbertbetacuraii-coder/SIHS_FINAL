@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern School Website with Professional Navigation">
+    <meta name="author" content="School Admin">
+    <title>{% block title %}{{ school.name }} - {{ school.tagline }}{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- Brand/Logo -->
+            <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="School Logo" height="65">
+            </a>
+
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('index') %}active{% endif %}" href="{{ url_for('index') }}">
+                            <i class="fas fa-home"></i> HOME
+                        </a>
+                    </li>
+
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown mega-nav-item">
+                        <a class="nav-link dropdown-toggle {% if request.path.startswith('/about') %}active{% endif %}" href="{{ url_for('about') }}" id="aboutDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-info-circle"></i> ABOUT
+                        </a>
+                        <div class="dropdown-menu about-dropdown" aria-labelledby="aboutDropdown">
+                            <!-- Featured Image -->
+                            <div class="about-dropdown-image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="{{ url_for('static', filename='videos/School2.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- About Menu Items -->
+                            <div class="about-dropdown-list">
+                                <a href="{{ url_for('history') }}" class="about-dropdown-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>History</span>
+                                </a>
+                                <a href="{{ url_for('mission_vision') }}" class="about-dropdown-item">
+                                    <i class="fas fa-bullseye"></i>
+                                    <span>Mission, Vision & Core Principles</span>
+                                </a>
+                                <a href="{{ url_for('school_logo') }}" class="about-dropdown-item">
+                                    <i class="fas fa-image"></i>
+                                    <span>School Logo</span>
+                                </a>
+                                <a href="{{ url_for('faculty') }}" class="about-dropdown-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Admin, Faculty & Staff</span>
+                                </a>
+                                <a href="{{ url_for('gallery') }}" class="about-dropdown-item">
+                                    <i class="fas fa-images"></i>
+                                    <span>Gallery</span>
+                                </a>
+                            </div>
+                            
+                            <!-- Full Info Button -->
+                            <div class="about-dropdown-footer">
+                                <a href="{{ url_for('about') }}" class="about-full-info-btn">Full Info</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Programs Dropdown -->
+                    <li class="nav-item dropdown mega-nav-item">
+                        <a class="nav-link dropdown-toggle {% if request.path.startswith('/academic-programs') or request.path.startswith('/curriculum') or request.path.startswith('/special-programs') or request.path.startswith('/student-life') or request.path == url_for('programs') %}active{% endif %}" href="{{ url_for('programs') }}" id="programsDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-book-open"></i> PROGRAMS
+                        </a>
+                        <div class="dropdown-menu programs-dropdown" aria-labelledby="programsDropdown">
+                            <!-- Featured Image -->
+                            <div class="programs-dropdown-image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="{{ url_for('static', filename='videos/School3.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- Programs Menu Items -->
+                            <div class="programs-dropdown-list">
+                                <a href="{{ url_for('academic_programs') }}" class="programs-dropdown-item">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>Academic Programs</span>
+                                </a>
+                                <a href="{{ url_for('curriculum') }}" class="programs-dropdown-item">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <span>Curriculum Overview</span>
+                                </a>
+                                <a href="{{ url_for('special_programs') }}" class="programs-dropdown-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Special Programs</span>
+                                </a>
+                                <a href="{{ url_for('student_life') }}" class="programs-dropdown-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Student Life</span>
+                                </a>
+                            </div>
+                            
+                            <!-- Full Info Button -->
+                            <div class="programs-dropdown-footer">
+                                <a href="{{ url_for('programs') }}" class="programs-full-info-btn">Full Info</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Admission Dropdown -->
+                    <li class="nav-item dropdown mega-nav-item">
+                        <a class="nav-link dropdown-toggle {% if request.path.startswith('/how-to-apply') or request.path.startswith('/requirements') or request.path.startswith('/fees') or request.path.startswith('/scholarships') or request.path == url_for('admission') %}active{% endif %}" href="{{ url_for('admission') }}" id="admissionDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-clipboard-list"></i> ADMISSION
+                        </a>
+                        <div class="dropdown-menu admission-dropdown" aria-labelledby="admissionDropdown">
+                            <!-- Featured Image -->
+                            <div class="admission-dropdown-image">
+                                <video autoplay muted loop playsinline>
+                                    <source src="{{ url_for('static', filename='videos/School.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- Admission Menu Items -->
+                            <div class="admission-dropdown-list">
+                                <a href="{{ url_for('how_to_apply') }}" class="admission-dropdown-item">
+                                    <i class="fas fa-edit"></i>
+                                    <span>How to Apply</span>
+                                </a>
+                                <a href="{{ url_for('requirements') }}" class="admission-dropdown-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Requirements</span>
+                                </a>
+                                <a href="{{ url_for('fees') }}" class="admission-dropdown-item">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Fees & Payment</span>
+                                </a>
+                                <a href="{{ url_for('scholarships') }}" class="admission-dropdown-item">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Scholarships</span>
+                                </a>
+                            </div>
+                            
+                            <!-- Full Info Button -->
+                            <div class="admission-dropdown-footer">
+                                <a href="{{ url_for('admission') }}" class="admission-full-info-btn">Full Info</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Feed -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('school_feed') %}active{% endif %}" href="{{ url_for('school_feed') }}">
+                            <i class="fas fa-newspaper"></i> FEED
+                        </a>
+                    </li>
+
+                    <!-- Assist -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('assist') %}active{% endif %}" href="{{ url_for('assist') }}">
+                            <i class="fas fa-life-ring"></i> ASSIST
+                        </a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('contact') %}active{% endif %}" href="{{ url_for('contact') }}">
+                            <i class="fas fa-envelope"></i> CONTACT
+                        </a>
+                    </li>
+
+                    <!-- Divider -->
+                    <li class="nav-item d-lg-none my-2">
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <!-- Login Icon (Desktop) -->
+                    <li class="nav-item d-none d-lg-block ms-2">
+                        <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-sm" title="Login">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+
+                    <!-- Enroll Button (Desktop) -->
+                    <li class="nav-item d-none d-lg-block ms-2">
+                        <a href="{{ url_for('enrollment') }}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-user-plus"></i> Enroll Now
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Login Button -->
+                <div class="d-lg-none mt-3 pt-3 border-top">
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-primary w-100">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a href="{{ url_for('enrollment') }}" class="btn btn-primary w-100 mt-2">
+                        <i class="fas fa-user-plus"></i> Enroll Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control form-control-lg" id="loginEmail" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control form-control-lg" id="loginPassword" placeholder="Password" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="loginRemember">
+                            <label class="form-check-label" for="loginRemember">
+                                Remember me
+                            </label>
+                        </div>
+                        <button class="btn btn-primary w-100" type="submit" id="loginSubmitBtn">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </button>
+                    </form>
+                    <p class="text-muted mt-3 small">Login functionality can be added later to support accounts and member access.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container-fluid px-4">
+            <div class="row g-4 mb-4">
+                <!-- About Footer -->
+                <div class="col-md-3">
+                    <h6 class="text-primary mb-3">
+                        <i class="fas fa-graduation-cap"></i> {{ school.name }}
+                    </h6>
+                    <p class="small text-muted">{{ school.tagline }}</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white-50 me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white-50 me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-3">
+                    <h6 class="text-primary mb-3">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="/about" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="/programs" class="text-white-50 text-decoration-none">Programs</a></li>
+                        <li><a href="/admission" class="text-white-50 text-decoration-none">Admission</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div class="col-md-3">
+                    <h6 class="text-primary mb-3">Contact</h6>
+                    <p class="small text-muted mb-1">
+                        <i class="fas fa-phone"></i> {{ school.phone }}
+                    </p>
+                    <p class="small text-muted mb-1">
+                        <i class="fas fa-envelope"></i> {{ school.email }}
+                    </p>
+                    <p class="small text-muted">
+                        <i class="fas fa-map-marker-alt"></i> {{ school.address }}
+                    </p>
+                </div>
+                <!-- Newsletter -->
+                <div class="col-md-3">
+                    <h6 class="text-primary mb-3">Newsletter</h6>
+                    <div class="input-group input-group-sm">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small text-muted mb-0">
+                        &copy; {{ current_year }} {{ school.name }}. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small text-muted mb-0">
+                        <a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a> | 
+                        <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Assist Button -->
+    <div class="floating-assist-wrapper">
+        <a id="floatingAssistButton" href="{{ url_for('assist') }}" class="floating-assist-button" aria-label="Talk to AI">
+            <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="AI Assist Logo">
+        </a>
+        <div id="floatingAssistBubble" class="floating-assist-bubble">Hi, if you need assistance click me</div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

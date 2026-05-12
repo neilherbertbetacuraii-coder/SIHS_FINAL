@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Photo Gallery</h1>
+                <p class="lead text-muted">Capturing moments of learning, growth, and achievement</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Gallery</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Content -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <!-- Gallery Introduction -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">School Life in Pictures</h2>
+                <p class="lead text-muted">
+                    Explore our vibrant school community through these captured moments of academic excellence,
+                    extracurricular activities, and memorable events.
+                </p>
+            </div>
+        </div>
+
+        <!-- Gallery Filter Buttons -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <div class="btn-group flex-wrap" role="group" aria-label="Gallery categories">
+                    <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="academic">Academic</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="sports">Sports</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="events">Events</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="campus">Campus Life</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="row g-3" id="gallery-grid">
+            <!-- Academic Images -->
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="academic">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-graduation-cap fa-3x mb-2"></i>
+                                <p class="mb-0">Science Lab</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Science Laboratory Activities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="academic">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-book fa-3x mb-2"></i>
+                                <p class="mb-0">Library</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">School Library</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports Images -->
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="sports">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-basketball-ball fa-3x mb-2"></i>
+                                <p class="mb-0">Basketball</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Basketball Championship</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="sports">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-running fa-3x mb-2"></i>
+                                <p class="mb-0">Track & Field</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Annual Sports Meet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Images -->
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="events">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-music fa-3x mb-2"></i>
+                                <p class="mb-0">Cultural Fest</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Annual Cultural Festival</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="events">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-graduation-cap fa-3x mb-2"></i>
+                                <p class="mb-0">Graduation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Graduation Ceremony</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campus Life Images -->
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="campus">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-users fa-3x mb-2"></i>
+                                <p class="mb-0">Classroom</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Interactive Learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 gallery-item" data-category="campus">
+                <div class="gallery-card position-relative overflow-hidden rounded-3 shadow-sm">
+                    <div class="placeholder-image bg-light" style="height: 250px;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-muted">
+                                <i class="fas fa-tree fa-3x mb-2"></i>
+                                <p class="mb-0">Campus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center opacity-0">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus fa-2x mb-2"></i>
+                            <p class="mb-0">Beautiful Campus Grounds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button class="btn btn-primary btn-lg" id="load-more-gallery">
+                    <i class="fas fa-plus me-2"></i>Load More Images
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Styles -->
+<style>
+.gallery-card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1 !important;
+}
+
+.gallery-item {
+    display: block;
+}
+</style>
+
+<!-- Gallery Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gallery filter functionality
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter gallery items
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Load more functionality (placeholder)
+    document.getElementById('load-more-gallery').addEventListener('click', function() {
+        this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Loading...';
+        setTimeout(() => {
+            this.innerHTML = '<i class="fas fa-plus me-2"></i>Load More Images';
+            // In a real implementation, this would load more images
+        }, 2000);
+    });
+});
+</script>
+{% endblock %}

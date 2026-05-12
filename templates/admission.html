@@ -1,0 +1,445 @@
+{% extends "base.html" %}
+
+{% block title %}Admission - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Admission</h1>
+                <p class="lead text-muted">Join our school community and start your educational journey</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Admission</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-gradient">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center gap-4">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-3">Ready to Enroll?</h2>
+                <p class="lead mb-0">
+                    Express your interest in joining {{ school_name }}. Our admission team will contact you with details 
+                    about the enrollment process and next steps.
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('enrollment') }}" class="btn btn-primary btn-lg fw-bold">
+                    <i class="fas fa-user-plus"></i> Enroll Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Admission Timeline -->
+<section id="how-to-apply" class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Admission Timeline</h2>
+                <p class="lead text-muted text-center">Follow these key dates for a smooth admission process</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Timeline Item 1 -->
+                <div class="d-flex gap-3 mb-5">
+                    <div class="flex-shrink-0">
+                        <div class="badge bg-primary rounded-circle p-3" style="width: 80px; height: 80px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold mb-2">Apply Online</h5>
+                        <p class="text-muted mb-1">Fill out the application form with required information</p>
+                        <small class="text-primary">Available Year-Round</small>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="d-flex gap-3 mb-5">
+                    <div class="flex-shrink-0">
+                        <div class="badge bg-primary rounded-circle p-3" style="width: 80px; height: 80px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold mb-2">Submit Documents</h5>
+                        <p class="text-muted mb-1">Provide birth certificate, previous school records, and health documents</p>
+                        <small class="text-primary">Within 2 Weeks of Application</small>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="d-flex gap-3 mb-5">
+                    <div class="flex-shrink-0">
+                        <div class="badge bg-primary rounded-circle p-3" style="width: 80px; height: 80px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-person"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold mb-2">Assessment</h5>
+                        <p class="text-muted mb-1">Attend entrance exam or assessment session</p>
+                        <small class="text-primary">Scheduled as Per Convenience</small>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="d-flex gap-3">
+                    <div class="flex-shrink-0">
+                        <div class="badge bg-primary rounded-circle p-3" style="width: 80px; height: 80px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="fw-bold mb-2">Admission Decision</h5>
+                        <p class="text-muted mb-1">Receive admission decision and enrollment confirmation</p>
+                        <small class="text-primary">Within 5 Working Days</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enrollment Requirements -->
+<section id="requirements" class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Enrollment Requirements</h2>
+                <p class="lead text-muted text-center">What you need to know before enrolling</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Requirements Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">
+                            <i class="fas fa-file text-primary me-2"></i>Documents
+                        </h5>
+                        <ul class="list-unstyled text-muted small">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Birth Certificate</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Vaccination Records</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Previous School Report Card</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Medical Records</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Parents' ID Copy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirements Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">
+                            <i class="fas fa-graduation-cap text-primary me-2"></i>Academic
+                        </h5>
+                        <ul class="list-unstyled text-muted small">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Meet Age Requirements</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Entrance Examination</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Personal Interview</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Previous Academic Records</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Transfer Certificate (if applicable)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirements Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">
+                            <i class="fas fa-coins text-primary me-2"></i>Financial
+                        </h5>
+                        <ul class="list-unstyled text-muted small">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Tuition Fees</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Registration Fee</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Development Fund</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Activity Fee</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Uniforms & Books</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fees & Payment -->
+<section id="fees" class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Fees & Payment</h2>
+                <p class="lead text-muted text-center">Transparent and flexible payment options available</p>
+            </div>
+        </div>
+        <div id="fees" class="row g-4">
+            <!-- Kindergarten Fees -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">Kindergarten</h5>
+                        <div class="mb-4">
+                            <span class="display-6 fw-bold text-primary">₹2,500</span>
+                            <small class="d-block text-muted">Per Month</small>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Classes</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Lunch</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Activities</li>
+                        </ul>
+                        <button class="btn btn-outline-primary btn-sm w-100">Know More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elementary Fees -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">Elementary</h5>
+                        <div class="mb-4">
+                            <span class="display-6 fw-bold text-success">₹3,500</span>
+                            <small class="d-block text-muted">Per Month</small>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Classes</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Lunch</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Activities</li>
+                        </ul>
+                        <button class="btn btn-outline-success btn-sm w-100">Know More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Junior High Fees -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">Junior High</h5>
+                        <div class="mb-4">
+                            <span class="display-6 fw-bold text-info">₹4,500</span>
+                            <small class="d-block text-muted">Per Month</small>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Classes</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Lunch</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Activities</li>
+                        </ul>
+                        <button class="btn btn-outline-info btn-sm w-100">Know More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Senior High Fees -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">Senior High</h5>
+                        <div class="mb-4">
+                            <span class="display-6 fw-bold text-warning">₹5,500</span>
+                            <small class="d-block text-muted">Per Month</small>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Classes</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Lunch</li>
+                            <li><i class="fas fa-check me-2 text-success"></i>Activities</li>
+                        </ul>
+                        <button class="btn btn-outline-warning btn-sm w-100">Know More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scholarship Information -->
+<section id="scholarships" class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-3">Scholarship Program</h2>
+                <p class="text-muted mb-3">
+                    We believe that financial considerations should not be a barrier to quality education. 
+                    That's why we offer a comprehensive scholarship program to deserving students.
+                </p>
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Scholarship Categories:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex gap-3">
+                            <i class="fas fa-graduate text-primary mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Academic Excellence</h6>
+                                <small class="text-muted">25-75% based on academic performance</small>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex gap-3">
+                            <i class="fas fa-medal text-primary mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Sports & Talent</h6>
+                                <small class="text-muted">Merit-based scholarship for athletes and artists</small>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex gap-3">
+                            <i class="fas fa-hands-helping text-primary mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Need-Based</h6>
+                                <small class="text-muted">Financial assistance for deserving families</small>
+                            </div>
+                        </li>
+                        <li class="d-flex gap-3">
+                            <i class="fas fa-heart text-primary mt-1"></i>
+                            <div>
+                                <h6 class="fw-bold mb-1">Staff Children</h6>
+                                <small class="text-muted">Special concessions for staff members' children</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download Scholarship Details
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-graduation-cap fa-4x mb-3 text-secondary"></i>
+                            <p>Scholarship Program</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Admission FAQ</h2>
+                <p class="lead text-muted text-center">Frequently Asked Questions about admission process</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                What is the minimum age requirement for admission?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                For Kindergarten, children should be 3 years old by the end of June. For elementary, students must have completed 
+                                kindergarten or be at least 6 years old. Age proofs through birth certificate are mandatory.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                What documents are required for admission?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Required documents include: Birth Certificate, Vaccination Records, Previous School Report Card, Medical Certificate, 
+                                and Parents' ID proof. A complete checklist will be provided during the application process.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Is there an entrance examination?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Yes, entrance examinations are conducted for classes 2 and above. For Kindergarten and Grade 1, we conduct 
+                                a readiness assessment and a parent interview.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                How long does the admission process take?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                The complete admission process typically takes 2-3 weeks from application to final admission decision. 
+                                Applications are processed on a rolling basis throughout the year.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item border-0 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                Do you offer payment plans?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Yes, we offer flexible payment options including monthly, quarterly, and annual payment plans. 
+                                Special arrangements can be made upon application and discussion with the administration.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="py-5 bg-primary text-white">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center text-center">
+            <div class="col-lg-12">
+                <h2 class="display-5 fw-bold mb-3">Have More Questions?</h2>
+                <p class="lead mb-4">Get in touch with our admission team for more information</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{{ url_for('enrollment') }}" class="btn btn-light fw-bold">
+                        <i class="fas fa-user-plus"></i> Express Interest
+                    </a>
+                    <a href="#" class="btn btn-outline-light fw-bold">
+                        <i class="fas fa-phone"></i> Call Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

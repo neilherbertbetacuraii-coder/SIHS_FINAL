@@ -1,0 +1,319 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">About Us</h1>
+                <p class="lead text-muted">Learn about {{ school.name }} and our mission to provide quality education</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our History Section -->
+<section id="history" class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center gap-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-3">Our History</h2>
+                <p class="text-muted mb-3">
+                    Founded in 1999, {{ school.name }} has been committed to providing quality education 
+                    for over two decades. What started as a small institution has grown into one of the most 
+                    respected educational centers in the region.
+                </p>
+                <p class="text-muted mb-3">
+                    Our journey has been marked by continuous innovation, dedication to academic excellence, 
+                    and a commitment to developing well-rounded individuals who are prepared to face the 
+                    challenges of the modern world.
+                </p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>25+ Years</strong> of educational excellence</li>
+                    <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>500+ Students</strong> successfully graduated</li>
+                    <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>Recognized</strong> by educational authorities</li>
+                    <li><i class="fas fa-check text-success"></i> <strong>Multiple</strong> national and international awards</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-book fa-4x mb-3 text-secondary"></i>
+                            <p>School History Image</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission, Vision & Values Section -->
+<section id="mission-vision" class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold mb-3">Mission, Vision & Core Values</h2>
+                <p class="lead text-muted">Our guiding principles that shape everything we do</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Mission Card -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-5">
+                        <div class="mb-3">
+                            <i class="fas fa-bullseye fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Our Mission</h5>
+                        <p class="card-text text-muted small">
+                            To provide a comprehensive and high-quality education that develops academically 
+                            excellent, morally upright, and socially responsible individuals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vision Card -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-5">
+                        <div class="mb-3">
+                            <i class="fas fa-eye fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Our Vision</h5>
+                        <p class="card-text text-muted small">
+                            To be the leading educational institution recognized for academic excellence, 
+                            innovation, and the holistic development of students.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Values Card -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 transition">
+                    <div class="card-body text-center p-5">
+                        <div class="mb-3">
+                            <i class="fas fa-heart fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Core Values</h5>
+                        <p class="card-text text-muted small">
+                            Excellence, Integrity, Respect, Innovation, Accountability, and Community Service 
+                            are the pillars upon which our institution is built.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values Details -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h3 class="display-5 fw-bold text-center mb-5">Our Core Values in Detail</h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="d-flex gap-3 mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <i class="fas fa-star fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Excellence</h5>
+                        <p class="text-muted small mb-0">We strive for excellence in all aspects of our work, from academics to character development.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex gap-3 mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <i class="fas fa-handshake fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Integrity</h5>
+                        <p class="text-muted small mb-0">Honesty and moral principles guide our decisions and interactions with all stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex gap-3 mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <i class="fas fa-people-arrows fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Respect</h5>
+                        <p class="text-muted small mb-0">We value and respect the dignity, diversity, and rights of every individual in our community.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex gap-3 mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <i class="fas fa-lightbulb fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Innovation</h5>
+                        <p class="text-muted small mb-0">We embrace change and continuously seek better ways to educate and develop our students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty Section -->
+<section id="faculty" class="py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">Our Leadership Team</h2>
+                <p class="lead text-muted text-center">Experienced educators and administrators dedicated to student success</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Faculty Member 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden transition h-100">
+                    <div class="faculty-image bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-user-tie fa-4x text-white"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Dr. John Smith</h5>
+                        <p class="text-primary small fw-bold">Principal</p>
+                        <p class="card-text text-muted small">Ed.D. in Educational Administration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Faculty Member 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden transition h-100">
+                    <div class="faculty-image bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-user-tie fa-4x text-white"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Ms. Sarah Johnson</h5>
+                        <p class="text-primary small fw-bold">Vice Principal</p>
+                        <p class="card-text text-muted small">M.Ed. in Curriculum Design</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Faculty Member 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden transition h-100">
+                    <div class="faculty-image bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-user-tie fa-4x text-white"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Prof. Michael Brown</h5>
+                        <p class="text-primary small fw-bold">Head of Academics</p>
+                        <p class="card-text text-muted small">M.Sc. in Physics</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Faculty Member 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden transition h-100">
+                    <div class="faculty-image bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-user-tie fa-4x text-white"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Ms. Emily Davis</h5>
+                        <p class="text-primary small fw-bold">Student Counselor</p>
+                        <p class="card-text text-muted small">M.A. in Psychology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold text-center mb-3">School Campus Gallery</h2>
+                <p class="lead text-muted text-center">Experience our modern facilities and vibrant learning environment</p>
+            </div>
+        </div>
+        <div class="row g-3">
+            <!-- Gallery Item 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item rounded-4 overflow-hidden shadow-sm transition" style="cursor: pointer;">
+                    <div class="bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-image fa-4x text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item rounded-4 overflow-hidden shadow-sm transition" style="cursor: pointer;">
+                    <div class="bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-image fa-4x text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item rounded-4 overflow-hidden shadow-sm transition" style="cursor: pointer;">
+                    <div class="bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-image fa-4x text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item rounded-4 overflow-hidden shadow-sm transition" style="cursor: pointer;">
+                    <div class="bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-image fa-4x text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item rounded-4 overflow-hidden shadow-sm transition" style="cursor: pointer;">
+                    <div class="bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-image fa-4x text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="gallery-item rounded-4 overflow-hidden shadow-sm transition" style="cursor: pointer;">
+                    <div class="bg-secondary p-5 text-center" style="min-height: 250px;">
+                        <i class="fas fa-image fa-4x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

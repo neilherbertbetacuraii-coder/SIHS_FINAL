@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+
+{% block title %}Student Life - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.92), rgba(72, 180, 97, 0.85));">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-white mb-2">Student Life</h1>
+                <p class="lead text-white">Where learning meets fun, friendship, and personal growth</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Student Life</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Student Life Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">More Than Just Academics</h2>
+                <p class="lead text-muted">
+                    At {{ school.name }}, we believe in nurturing the whole child. Our vibrant student life
+                    programs support social development, leadership skills, and lifelong friendships.
+                </p>
+            </div>
+        </div>
+
+        <!-- Key Aspects -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-users text-white fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">Community</h5>
+                        <p class="text-muted">Strong sense of belonging and school spirit</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-trophy text-white fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">Excellence</h5>
+                        <p class="text-muted">Recognition of achievements in academics and activities</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-heart text-white fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">Wellness</h5>
+                        <p class="text-muted">Physical and mental health support programs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-lightbulb text-white fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">Leadership</h5>
+                        <p class="text-muted">Opportunities to develop leadership and organizational skills</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Life & Activities -->
+        <div class="row g-4">
+            <!-- Clubs & Organizations -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-users-cog me-2"></i>Clubs & Organizations</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-muted mb-3">
+                            Over 20 student-led clubs and organizations offering diverse interests and activities.
+                        </p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-primary">Academic Clubs</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Science Club</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Math Club</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Debate Club</li>
+                                    <li><i class="fas fa-dot-circle text-muted me-2"></i>Model UN</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-success">Interest Clubs</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Art Club</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Music Club</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Drama Club</li>
+                                    <li><i class="fas fa-dot-circle text-muted me-2"></i>Photography</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports & Athletics -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-running me-2"></i>Sports & Athletics</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-muted mb-3">
+                            Comprehensive athletic programs promoting physical fitness, teamwork, and sportsmanship.
+                        </p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-success">Team Sports</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Basketball</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Soccer</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Volleyball</li>
+                                    <li><i class="fas fa-dot-circle text-muted me-2"></i>Baseball/Softball</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-info">Individual Sports</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Track & Field</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Tennis</li>
+                                    <li class="mb-1"><i class="fas fa-dot-circle text-muted me-2"></i>Swimming</li>
+                                    <li><i class="fas fa-dot-circle text-muted me-2"></i>Cross Country</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events & Traditions -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-calendar-alt me-2"></i>Events & Traditions</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                        <i class="fas fa-graduation-cap fa-lg text-primary"></i>
+                                    </div>
+                                    <h6 class="fw-bold">Homecoming</h6>
+                                    <p class="text-muted small">Annual celebration of school spirit and alumni</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                        <i class="fas fa-music fa-lg text-success"></i>
+                                    </div>
+                                    <h6 class="fw-bold">Cultural Fest</h6>
+                                    <p class="text-muted small">Showcase of diverse cultures and traditions</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                        <i class="fas fa-trophy fa-lg text-warning"></i>
+                                    </div>
+                                    <h6 class="fw-bold">Sports Day</h6>
+                                    <p class="text-muted small">Inter-house competitions and athletic events</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                        <i class="fas fa-heart fa-lg text-danger"></i>
+                                    </div>
+                                    <h6 class="fw-bold">Community Service</h6>
+                                    <p class="text-muted small">Volunteering and giving back to the community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Support Services -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="h1 fw-bold text-center mb-5">Student Support Services</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-user-md text-white fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold">Counseling Services</h5>
+                                <p class="text-muted">
+                                    Professional counselors provide academic, personal, and career guidance
+                                    to support student success and well-being.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-brain text-white fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold">Learning Support</h5>
+                                <p class="text-muted">
+                                    Academic tutoring, study skills workshops, and learning accommodations
+                                    to help every student reach their potential.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-hands-helping text-white fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold">Peer Support</h5>
+                                <p class="text-muted">
+                                    Student mentors and peer counseling programs create a supportive
+                                    environment where students help each other succeed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Testimonials -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="bg-light rounded-4 p-5">
+                    <h2 class="h1 fw-bold text-center mb-4">What Our Students Say</h2>
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <div class="card border-0 bg-white shadow-sm h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-primary fa-2x"></i>
+                                    </div>
+                                    <p class="card-text text-muted mb-3">
+                                        "The clubs and sports teams have helped me discover my passions and make lifelong friends.
+                                        Student life here is incredible!"
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                            <span class="text-white fw-bold">S</span>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Sarah Chen</h6>
+                                            <small class="text-muted">Grade 11, Student Council President</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card border-0 bg-white shadow-sm h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-success fa-2x"></i>
+                                    </div>
+                                    <p class="card-text text-muted mb-3">
+                                        "Being part of the debate club has boosted my confidence and public speaking skills.
+                                        The support from teachers and peers is amazing."
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                            <span class="text-white fw-bold">M</span>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Marcus Johnson</h6>
+                                            <small class="text-muted">Grade 10, Debate Club Captain</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card border-0 bg-white shadow-sm h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-info fa-2x"></i>
+                                    </div>
+                                    <p class="card-text text-muted mb-3">
+                                        "The sports programs teach teamwork and discipline while keeping us active and healthy.
+                                        I love being part of this community!"
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <div class="bg-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                            <span class="text-white fw-bold">A</span>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Aisha Patel</h6>
+                                            <small class="text-muted">Grade 9, Basketball Team</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

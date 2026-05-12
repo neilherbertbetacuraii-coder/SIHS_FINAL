@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Our History - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Our History</h1>
+                <p class="lead text-muted">Discover the journey and legacy of {{ school.name }}</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('about') }}">About</a></li>
+                        <li class="breadcrumb-item active">History</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- History Content -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center gap-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-3">Founded in 1999</h2>
+                <p class="text-muted mb-3">
+                    {{ school.name }} was established in 1999 with a vision to provide exceptional education
+                    that nurtures both academic excellence and personal growth. What began as a small
+                    educational institution has evolved into a leading center of learning.
+                </p>
+                <p class="text-muted mb-3">
+                    Our journey has been marked by continuous innovation, dedication to academic excellence,
+                    and a commitment to developing well-rounded individuals who are prepared to face the
+                    challenges of the modern world.
+                </p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>25+ Years</strong> of educational excellence</li>
+                    <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>500+ Students</strong> successfully graduated</li>
+                    <li class="mb-2"><i class="fas fa-check text-success"></i> <strong>Recognized</strong> by educational authorities</li>
+                    <li><i class="fas fa-check text-success"></i> <strong>Multiple</strong> national and international awards</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="placeholder-image bg-light rounded-4 shadow h-100" style="min-height: 400px;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-image fa-3x mb-3"></i>
+                            <p>Historical Images Gallery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

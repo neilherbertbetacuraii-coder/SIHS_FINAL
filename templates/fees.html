@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+
+{% block title %}Tuition & Fees - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Tuition & Fees</h1>
+                <p class="lead text-muted">Transparent pricing for quality education</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Fees</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tuition Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">2024-2025 Academic Year</h2>
+                <p class="lead text-muted">
+                    Our tuition structure is designed to provide exceptional value while ensuring
+                    access to quality education for all qualified students.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tuition by Grade Level -->
+        <div class="row g-4 mb-5">
+            <!-- Elementary -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3 class="h4 mb-0">Elementary School</h3>
+                        <p class="mb-0 small">Grades 1-5</p>
+                    </div>
+                    <div class="card-body p-4 text-center">
+                        <div class="display-4 fw-bold text-primary mb-2">$12,500</div>
+                        <p class="text-muted mb-3">per year</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Full academic program</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Arts and physical education</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic school supplies</li>
+                            <li><i class="fas fa-check text-success me-2"></i>School lunch program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-success text-white text-center">
+                        <h3 class="h4 mb-0">Middle School</h3>
+                        <p class="mb-0 small">Grades 6-8</p>
+                    </div>
+                    <div class="card-body p-4 text-center">
+                        <div class="display-4 fw-bold text-success mb-2">$15,800</div>
+                        <p class="text-muted mb-3">per year</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Advanced curriculum</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Technology integration</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Elective courses</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Leadership programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-info text-white text-center">
+                        <h3 class="h4 mb-0">High School</h3>
+                        <p class="mb-0 small">Grades 9-12</p>
+                    </div>
+                    <div class="card-body p-4 text-center">
+                        <div class="display-4 fw-bold text-info mb-2">$18,200</div>
+                        <p class="text-muted mb-3">per year</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>College preparatory</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AP/Honors courses</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Career counseling</li>
+                            <li><i class="fas fa-check text-success me-2"></i>College application support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Fees -->
+        <div class="row g-4">
+            <!-- One-time Fees -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-coins me-2"></i>One-Time Fees</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Application Fee</span>
+                            <strong>$150</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Enrollment Deposit</span>
+                            <strong>$1,000</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Technology Fee (one-time)</span>
+                            <strong>$300</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Student ID & Yearbook</span>
+                            <strong>$75</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong>Total One-Time Fees</strong>
+                            <strong class="text-warning">$1,525</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annual Fees -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-danger text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-calendar-alt me-2"></i>Annual Fees</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Books & Supplies</span>
+                            <strong>$450</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Technology & Lab Fees</span>
+                            <strong>$250</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Activity & Club Fees</span>
+                            <strong>$200</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Transportation (optional)</span>
+                            <strong>$1,200</strong>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Extended Care (optional)</span>
+                            <strong>$800</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong>Total Annual Fees</strong>
+                            <strong class="text-danger">$2,900</strong>
+                        </div>
+                        <small class="text-muted">*Optional fees vary by enrollment</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Plans -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-credit-card me-2"></i>Payment Options</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-calendar-check fa-2x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Annual Payment</h5>
+                                    <p class="text-muted">Full payment by August 1st</p>
+                                    <div class="h4 text-primary mb-0">2% Discount</div>
+                                    <small class="text-muted">Save on total tuition</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-calendar-week fa-2x text-success"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Semester Payment</h5>
+                                    <p class="text-muted">Two payments per year</p>
+                                    <div class="h4 text-success mb-0">August & January</div>
+                                    <small class="text-muted">Standard payment plan</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-center">
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-calendar-day fa-2x text-info"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Monthly Payment</h5>
+                                    <p class="text-muted">10 monthly installments</p>
+                                    <div class="h4 text-info mb-0">August - May</div>
+                                    <small class="text-muted">Convenient monthly billing</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Aid -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-hand-holding-heart me-2"></i>Financial Aid & Scholarships</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Need-Based Aid</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i>Up to 50% tuition assistance</li>
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i>Based on family financial need</li>
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-success me-2"></i>FAFSA application required</li>
+                                    <li><i class="fas fa-dollar-sign text-success me-2"></i>Renewable annually</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Merit Scholarships</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-trophy text-success me-2"></i>Academic excellence awards</li>
+                                    <li class="mb-2"><i class="fas fa-trophy text-success me-2"></i>Arts and athletics scholarships</li>
+                                    <li class="mb-2"><i class="fas fa-trophy text-success me-2"></i>Leadership and service awards</li>
+                                    <li><i class="fas fa-trophy text-success me-2"></i>Up to 25% tuition reduction</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <a href="{{ url_for('scholarships') }}" class="btn btn-success btn-lg">
+                                <i class="fas fa-graduation-cap me-2"></i>Learn About Scholarships
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refund Policy -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-undo me-2"></i>Refund Policy</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Tuition Refunds</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-calendar-times text-warning me-2"></i>Written notice required for withdrawal</li>
+                                    <li class="mb-2"><i class="fas fa-calendar-times text-warning me-2"></i>90% refund if withdrawn by August 15</li>
+                                    <li class="mb-2"><i class="fas fa-calendar-times text-warning me-2"></i>50% refund if withdrawn by October 15</li>
+                                    <li><i class="fas fa-calendar-times text-warning me-2"></i>No refund after October 15</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Fee Refunds</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-calendar-times text-warning me-2"></i>Application fee is non-refundable</li>
+                                    <li class="mb-2"><i class="fas fa-calendar-times text-warning me-2"></i>Technology fee partially refundable</li>
+                                    <li class="mb-2"><i class="fas fa-calendar-times text-warning me-2"></i>Books and supplies as applicable</li>
+                                    <li><i class="fas fa-calendar-times text-warning me-2"></i>Pro-rated refunds for partial year</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact for Financial Questions -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-light rounded-4 p-5">
+                    <h2 class="h1 fw-bold mb-4">Questions About Tuition & Fees?</h2>
+                    <p class="lead text-muted mb-4">
+                        Our financial aid office is here to help you understand your options and find
+                        the best financial solution for your family.
+                    </p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <a href="mailto:financialaid@{{ school.domain }}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Contact Financial Aid
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="tel:+15551234567" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-phone me-2"></i>Call (555) 123-4567
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ url_for('how_to_apply') }}" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-edit me-2"></i>Start Application
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <small>*Tuition rates are subject to annual review and may change for the next academic year</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

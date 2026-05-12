@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}Home - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section py-5" id="heroSlideshow">
+    <div class="slideshow-container">
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/1.png') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/2.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/3.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/4.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/5.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/6.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/7.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/8.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/9.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/10.jpg') }}"></div>
+        <div class="slide fade" data-bg="{{ url_for('static', filename='images/11.jpg') }}"></div>
+    </div>
+    <div class="slideshow-overlay"></div>
+    <div class="container-fluid px-4 position-relative" style="z-index: 10;">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold text-primary mb-3">
+                        Welcome to {{ school.name }}
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        "{{ school.tagline }}" - Join us in shaping the future leaders and innovators through 
+                        quality education and holistic development.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="{{ url_for('enrollment') }}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user-plus"></i> Enroll Now
+                        </a>
+                        <a href="/about" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <video class="hero-video rounded-4 shadow" width="100%" height="500" autoplay muted loop>
+                        <source src="{{ url_for('static', filename='videos/School3.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="features-section py-5">
+    <div class="container-fluid px-4">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold mb-3">Why Choose {{ school.name }}?</h2>
+                <p class="lead text-white">We provide comprehensive education with focus on academic excellence and character development</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 rounded-4 bg-white shadow-sm h-100 transition">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-book-reader fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Expert Faculty</h5>
+                    <p class="text-muted">Highly qualified and experienced teachers dedicated to student success</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 rounded-4 bg-white shadow-sm h-100 transition">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-microscope fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Modern Facilities</h5>
+                    <p class="text-muted">State-of-the-art laboratories, libraries, and sports facilities</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 rounded-4 bg-white shadow-sm h-100 transition">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-users fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Community Focus</h5>
+                    <p class="text-muted">Strong emphasis on values, character, and community service</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="statistics-section py-5">
+    <div class="container-fluid px-4">
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <h3 class="display-6 fw-bold text-primary">25+</h3>
+                    <p class="text-muted">Years of Excellence</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <h3 class="display-6 fw-bold text-primary">500+</h3>
+                    <p class="text-muted">Students</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <h3 class="display-6 fw-bold text-primary">50+</h3>
+                    <p class="text-muted">Faculty Members</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-box">
+                    <h3 class="display-6 fw-bold text-primary">95%</h3>
+                    <p class="text-muted">Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Preview Section -->
+<section class="programs-preview-section py-5">
+    <div class="container-fluid px-4">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold mb-3">Our Programs</h2>
+                <p class="lead text-white">Comprehensive educational programs from kindergarten to senior high school</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Program 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="program-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <div class="program-header text-center">
+                        <img src="{{ url_for('static', filename='images/KD.png') }}" alt="Kindergarten" class="program-card-img mb-3">
+                        <h5 class="fw-bold">Kindergarten</h5>
+                    </div>
+                    <div class="program-body p-4">
+                        <p class="text-muted mb-3">Kindergarten</p>
+                        <p class="small text-secondary mb-3">Early childhood development with focus on play-based learning</p>
+                        <a href="/programs" class="btn btn-sm btn-outline-primary w-100">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Program 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="program-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <div class="program-header text-center">
+                        <img src="{{ url_for('static', filename='images/EL.png') }}" alt="Elementary" class="program-card-img mb-3">
+                        <h5 class="fw-bold">Elementary</h5>
+                    </div>
+                    <div class="program-body p-4">
+                        <p class="text-muted mb-3">Elementary</p>
+                        <p class="small text-secondary mb-3">Foundation in academics with extracurricular activities</p>
+                        <a href="/programs" class="btn btn-sm btn-outline-success w-100">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Program 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="program-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <div class="program-header text-center">
+                        <img src="{{ url_for('static', filename='images/HS.png') }}" alt="Junior High" class="program-card-img mb-3">
+                        <h5 class="fw-bold">Junior High</h5>
+                    </div>
+                    <div class="program-body p-4">
+                        <p class="text-muted mb-3">Junior High</p>
+                        <p class="small text-secondary mb-3">Advanced curriculum with STEM and sports programs</p>
+                        <a href="/programs" class="btn btn-sm btn-outline-info w-100">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Program 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="program-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <div class="program-header text-center">
+                        <img src="{{ url_for('static', filename='images/SH.png') }}" alt="Senior High" class="program-card-img mb-3">
+                        <h5 class="fw-bold">Senior High</h5>
+                    </div>
+                    <div class="program-body p-4">
+                        <p class="text-muted mb-3">Senior High</p>
+                        <p class="small text-secondary mb-3">College preparation with specialized tracks and mentoring</p>
+                        <a href="/programs" class="btn btn-sm btn-outline-warning w-100">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-3">Ready to Join Our School Community?</h2>
+                <p class="lead mb-0">Start your educational journey with us today. Enrich your life with knowledge and character.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{{ url_for('enrollment') }}" class="btn btn-light btn-lg fw-bold">
+                    <i class="fas fa-user-plus"></i> Enroll Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News/Updates Section -->
+<section class="news-section py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="display-5 fw-bold mb-3">Latest Updates</h2>
+                <p class="lead text-muted">Stay connected with what's happening at {{ school.name }}</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- News Item 1 -->
+            <div class="col-lg-4 col-md-6">
+                <article class="news-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <a href="{{ url_for('school_feed') }}" class="news-card-link" data-bg="{{ url_for('static', filename='images/Background.jpg') }}">
+                        <span class="news-card-title">Annual Sports Day</span>
+                        <span class="news-card-label">Read More</span>
+                    </a>
+                </article>
+            </div>
+            <!-- News Item 2 -->
+            <div class="col-lg-4 col-md-6">
+                <article class="news-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <a href="{{ url_for('school_feed') }}" class="news-card-link" data-bg="{{ url_for('static', filename='images/Background3.jpg') }}">
+                        <span class="news-card-title">Exam Achievements</span>
+                        <span class="news-card-label">Read More</span>
+                    </a>
+                </article>
+            </div>
+            <!-- News Item 3 -->
+            <div class="col-lg-4 col-md-6">
+                <article class="news-card rounded-4 overflow-hidden shadow-sm transition h-100">
+                    <a href="{{ url_for('school_feed') }}" class="news-card-link" data-bg="{{ url_for('static', filename='images/Background6.jpg') }}">
+                        <span class="news-card-title">Parent-Teacher Event</span>
+                        <span class="news-card-label">Read More</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    slides.forEach(slide => {
+        const bg = slide.dataset.bg;
+        if (bg) {
+            slide.style.backgroundImage = `url('${bg}')`;
+        }
+    });
+
+    const newsLinks = document.querySelectorAll('.news-card-link');
+    newsLinks.forEach(link => {
+        const bg = link.dataset.bg;
+        if (bg) {
+            link.style.backgroundImage = `url('${bg}')`;
+        }
+    });
+    
+    function showSlide(n) {
+        slides.forEach(slide => slide.style.opacity = '0');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].style.opacity = '1';
+    }
+    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+    
+    // Show first slide
+    showSlide(0);
+    
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+});
+</script>
+{% endblock %}

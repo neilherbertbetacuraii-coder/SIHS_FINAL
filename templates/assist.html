@@ -1,0 +1,485 @@
+{% extends "base.html" %}
+
+{% block title %}Assist - {{ school.name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+.assist-hero {
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 35%),
+                linear-gradient(135deg, #0d1f3d 0%, #102d4b 100%);
+    color: #f8fafc;
+}
+.assist-hero h1,
+.assist-hero p,
+.assist-hero .badge {
+    color: #f8fafc;
+}
+.assist-card {
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.25);
+}
+.assist-chat-panel {
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+.assist-chat-history {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 24px;
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 620px;
+}
+.chat-bubble {
+    max-width: 78%;
+    padding: 1rem 1.2rem;
+    border-radius: 22px;
+    line-height: 1.6;
+    font-size: 0.96rem;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.chat-bubble.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(14, 165, 233, 0.18));
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #e2e8f0;
+}
+.chat-bubble.assistant {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+}
+.assist-input-group {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+}
+.assist-input {
+    resize: none;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    color: #333;
+    padding: 0.75rem 1rem;
+    min-height: 90px;
+    transition: all 0.3s ease;
+}
+.assist-input:focus {
+    outline: none;
+    border-color: rgba(56, 189, 248, 0.8);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    background: #ffffff;
+}
+.assist-topic-card {
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(15, 23, 42, 0.88);
+    padding: 1.5rem;
+    color: #e2e8f0;
+}
+.assist-topic-card h3 {
+    color: #f8fafc;
+}
+.assist-topic-card p {
+    color: #cbd5e1;
+}
+.assist-topic-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.assist-topic-item:last-child {
+    margin-bottom: 0;
+}
+.assist-topic-item h5 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.assist-topic-item p {
+    margin-bottom: 0;
+    color: #cbd5e1;
+}
+.btn-assist-send {
+    border-radius: 18px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+.btn-assist-send:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 1rem 1.2rem;
+    align-self: flex-start;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+.typing-dot:nth-child(3) { animation-delay: 0s; }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="page-header py-5 assist-hero">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="badge bg-info mb-3">Virtual Assistant</span>
+                <h1 class="display-5 fw-bold mb-3">School Assistant</h1>
+                <p class="lead text-muted mb-4">Ask for help with registration, school history, and instructor information. This assistant is tailored to the {{ school.name }} experience.</p>
+                <p class="text-white-50">Type a question, choose a quick topic, and get instant guidance.</p>
+                <button id="talkToAIButton" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-robot me-2"></i>TALK TO AI
+                </button>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <div class="assist-topic-card">
+                    <h3>How I can help</h3>
+                    <div class="assist-topic-item">
+                        <h5>Registration</h5>
+                        <p>Get step-by-step advice on applying, requirements, and enrollment.</p>
+                    </div>
+                    <div class="assist-topic-item">
+                        <h5>School History</h5>
+                        <p>Learn about the legacy and milestones of San Isidro High School.</p>
+                    </div>
+                    <div class="assist-topic-item">
+                        <h5>Instructor Info</h5>
+                        <p>Discover how to contact faculty and learn about our teaching team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row g-4">
+            <div class="col-xl-12">
+                <div class="assist-card p-4">
+                    <div class="assist-chat-panel">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h2 class="h4 mb-1">Chat with Assist</h2>
+                                <p class="small text-muted mb-0">Only about registration, school history, and instructor information.</p>
+                            </div>
+                            <span class="badge bg-success">Response time: instant</span>
+                        </div>
+
+                        <div id="assistChatHistory" class="assist-chat-history">
+                            <div class="chat-bubble assistant">
+                                Hello! I can help you register, learn about our history, or find information about instructors. Try asking: "How do I enroll?" or "Tell me about school history."
+                            </div>
+                        </div>
+
+                        <div class="assist-input-group mt-3">
+                            <textarea id="assistMessageInput" class="form-control assist-input" placeholder="Ask about registration, history, or instructors..." rows="3"></textarea>
+                            <button id="assistSendBtn" class="btn btn-primary btn-assist-send">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+    const messageInput = document.getElementById('assistMessageInput');
+    const sendBtn = document.getElementById('assistSendBtn');
+    const chatHistory = document.getElementById('assistChatHistory');
+    const talkToAIButton = document.getElementById('talkToAIButton');
+
+    function addChatBubble(message, sender) {
+        const bubble = document.createElement('div');
+        bubble.className = `chat-bubble ${sender}`;
+        bubble.textContent = message;
+        bubble.style.opacity = '0';
+        bubble.style.transform = 'translateY(10px)';
+        chatHistory.appendChild(bubble);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+
+        // Force reflow
+        bubble.offsetHeight;
+
+        // Animate in
+        bubble.style.transition = 'all 0.4s ease-out';
+        bubble.style.opacity = '1';
+        bubble.style.transform = 'translateY(0)';
+    }
+
+    function showTypingIndicator() {
+        const indicator = document.createElement('div');
+        indicator.className = 'typing-indicator';
+        indicator.innerHTML = `
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        `;
+        chatHistory.appendChild(indicator);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+        return indicator;
+    }
+
+    function hideTypingIndicator(indicator) {
+        if (indicator && indicator.parentNode) {
+            indicator.parentNode.removeChild(indicator);
+        }
+    }
+
+    function getAssistResponse(message) {
+        const text = message.toLowerCase().trim();
+        const greetingWords = ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'sup', 'yo'];
+        const thanks = ['thank', 'thanks', 'thx', 'appreciate'];
+        const questions = ['what', 'how', 'when', 'where', 'why', 'who', 'can you', 'do you'];
+
+        function matchesWord(words) {
+            return words.some(word => new RegExp('(^|\\W)' + word.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '(\\W|$)').test(text));
+        }
+
+        // Greetings
+        if (matchesWord(greetingWords)) {
+            const greetingResponses = [
+                'Hello! I\'m the school assistant. I know the whole website and can help you with registration, school history, instructors, and every page. What would you like to know?',
+                'Hi there! I\'m the virtual assistant for San Isidro High School. I know the site inside out — admissions, programs, history, faculty, and more. How can I assist you today?',
+                'Hey! Great to see you. I can guide you through the whole website, including enrollment, faculty details, and school background. What are you curious about?',
+                'Hello! I\'m excited to help you explore San Isidro High School online. Ask me anything about the website or school information!'
+            ];
+            return greetingResponses[Math.floor(Math.random() * greetingResponses.length)];
+        }
+
+        // Casual friendliness
+        if (text.includes('how are you') || text.includes('how r you') || text.includes('how do you') || text.includes('what\'s up') || text.includes('whats up')) {
+            const casualResponses = [
+                'I\'m doing great, thank you! I\'m here and ready to help you explore the website and school information.',
+                'I\'m feeling helpful today 😊 Ask me anything about the website, registration, history, or instructors.',
+                'I\'m ready to assist. Let\'s talk about San Isidro High School — admissions, history, faculty, or site navigation.',
+                'All good here! How can I help you with school or website information today?'
+            ];
+            return casualResponses[Math.floor(Math.random() * casualResponses.length)];
+        }
+
+        // Thanks
+        if (matchesWord(thanks)) {
+            const thankResponses = [
+                'You\'re welcome! I can also show you more pages or answer questions about the school.',
+                'Happy to help! Ask me more about the website, admission, faculty, or school history.',
+                'My pleasure! I know every page on the site, so feel free to ask anything.',
+                'Glad I could assist! What else would you like to learn about the school or website?'
+            ];
+            return thankResponses[Math.floor(Math.random() * thankResponses.length)];
+        }
+
+        // Site navigation
+        if (matchesWord(['home', 'about', 'programs', 'admission', 'contact', 'feed', 'assist', 'faculty', 'gallery', 'history', 'mission', 'vision', 'requirements', 'fees', 'scholarships', 'curriculum', 'special programs', 'student life', 'school logo'])) {
+            const siteResponses = [
+                'This website has sections for Home, About, Programs, Admission, School Feed, Assist, and Contact. It also includes pages for History, Faculty, Gallery, and more.',
+                'I know the full website: Home, About, Programs, Admission, Contact, and deeper pages like History, Mission & Vision, Faculty, and School Feed.',
+                'The site includes admissions details, academic programs, school history, instructor profiles, and useful pages like fees, requirements, scholarships, and campus gallery.',
+                'I can help you find the right page. The website contains Home, About, Programs, Admission, Contact, Faculty, Gallery, History, and other helpful sections.'
+            ];
+            return siteResponses[Math.floor(Math.random() * siteResponses.length)];
+        }
+
+        // Registration/Enrollment
+        if (text.includes('enroll') || text.includes('registration') || text.includes('apply') || text.includes('admission')) {
+            const enrollResponses = [
+                'To register, visit our Admission page for complete requirements. You\'ll need to fill out the application form and submit supporting documents. Which grade level are you interested in - junior high, senior high, or special programs?',
+                'Enrollment is easy! Check the Admission section for requirements, then complete the online application. We offer programs from kindergarten through senior high. What grade is your child entering?',
+                'Great! For registration details, head to the Admission page. We require report cards, birth certificates, and proof of guardianship. Would you like me to tell you about our different programs?',
+                'I\'d be happy to help with enrollment! Visit the Admission page for the full process. We have spots in elementary, junior high, and senior high. Which level interests you most?'
+            ];
+            return enrollResponses[Math.floor(Math.random() * enrollResponses.length)];
+        }
+
+        // School History
+        if (text.includes('history') || text.includes('legacy') || text.includes('found') || text.includes('about the school') || text.includes('background')) {
+            const historyResponses = [
+                'San Isidro High School has been serving our community for many years, starting as a small institution focused on quality education. Today, we\'re known for our strong academic programs and dedicated faculty. Would you like to know about our mission or see some photos?',
+                'Our school began with a commitment to excellence in education and community service. We\'ve grown into a comprehensive institution offering programs from kindergarten through senior high. What aspect of our history interests you most?',
+                'San Isidro High School was founded to provide quality education in our local community. We take pride in our academic achievements and the success of our graduates. Check out our History page for more details!',
+                'We started as a community-focused school and have evolved into a center of educational excellence. Our faculty and programs reflect our commitment to student success. Would you like me to tell you about our current programs?'
+            ];
+            return historyResponses[Math.floor(Math.random() * historyResponses.length)];
+        }
+
+        // Instructors/Faculty
+        if (text.includes('instructor') || text.includes('faculty') || text.includes('teacher') || text.includes('staff') || text.includes('principal')) {
+            const facultyResponses = [
+                'Our instructors are experienced educators passionate about teaching. Visit the Faculty page to meet our principal, teachers, and staff members. Do you have a specific subject or grade level in mind?',
+                'We have a dedicated team of qualified teachers and administrators. Check out the Faculty section to learn about our leadership and teaching staff. What would you like to know about our educators?',
+                'Our faculty includes experienced teachers in all subjects, plus dedicated support staff. The Faculty page has profiles of our team. Are you looking for information about a particular department?',
+                'San Isidro High School is proud of our teaching staff! Visit the Faculty page to see our principal and teachers. Each instructor brings unique expertise to help students succeed.'
+            ];
+            return facultyResponses[Math.floor(Math.random() * facultyResponses.length)];
+        }
+
+        // Requirements/Documents
+        if (text.includes('requirements') || text.includes('documents') || text.includes('need') || text.includes('fees') || text.includes('cost')) {
+            const reqResponses = [
+                'Admission requirements vary by program, but generally include report cards, birth certificates, and proof of guardianship. Visit the Admission page for complete details. Would you like me to explain the enrollment process?',
+                'For enrollment, you\'ll typically need academic records, identification, and guardian information. Check the Requirements page for your specific program. Do you have questions about fees or deadlines?',
+                'Required documents usually include report cards, birth certificates, and parent/guardian ID. The Admission section has everything you need. Which grade level are you applying for?',
+                'We require standard school documents plus proof of residency. Visit the Admission page for the complete checklist. I can also tell you about our scholarship opportunities!'
+            ];
+            return reqResponses[Math.floor(Math.random() * reqResponses.length)];
+        }
+
+        // Programs/Curriculum
+        if (text.includes('program') || text.includes('curriculum') || text.includes('subject') || text.includes('class') || text.includes('grade')) {
+            const programResponses = [
+                'We offer comprehensive programs from kindergarten through senior high school. Visit the Programs page to learn about our academic offerings. Which level interests you - elementary, junior high, or senior high?',
+                'Our curriculum covers all core subjects plus electives and special programs. Check the Programs section for details. Do you want information about a specific grade or subject area?',
+                'San Isidro High School provides a well-rounded education with strong academics and extracurricular activities. The Programs page has all the details. What type of program are you looking for?',
+                'We have programs designed to meet different learning needs and interests. Visit Programs to see our offerings. Would you like me to tell you about our special programs or student life?'
+            ];
+            return programResponses[Math.floor(Math.random() * programResponses.length)];
+        }
+
+        // Contact/Location
+        if (text.includes('contact') || text.includes('phone') || text.includes('email') || text.includes('address') || text.includes('location') || text.includes('visit')) {
+            const contactResponses = [
+                'You can reach us at ' + '{{ school.phone }}' + ' or email ' + '{{ school.email }}' + '. We\'re located at ' + '{{ school.address }}' + '. Visit our Contact page for more ways to connect!',
+                'Our office hours are Monday-Friday 8AM-5PM, Saturday 9AM-1PM. Contact us at ' + '{{ school.phone }}' + ' or visit ' + '{{ school.address }}' + '. The Contact page has our full information.',
+                'Feel free to call ' + '{{ school.phone }}' + ' or email ' + '{{ school.email }}' + ' during business hours. We\'re at ' + '{{ school.address }}' + ' in Kadingilan, Bukidnon.',
+                'You can contact the school office at ' + '{{ school.phone }}' + ' or ' + '{{ school.email }}' + '. Visit us at ' + '{{ school.address }}' + '. Check the Contact page for directions!'
+            ];
+            return contactResponses[Math.floor(Math.random() * contactResponses.length)];
+        }
+
+        // Questions about questions
+        const isQuestion = questions.some(q => text.startsWith(q));
+        if (isQuestion) {
+            const questionResponses = [
+                'That\'s a great question! I can help with information about registration, school history, and instructors. What specifically would you like to know?',
+                'I\'m here to answer questions about San Isidro High School. Ask me about admissions, our background, faculty, or programs!',
+                'Feel free to ask me anything about enrollment, our history, or teaching staff. I\'m happy to help!',
+                'I specialize in school-related questions. Try asking about registration, history, instructors, or our programs!'
+            ];
+            return questionResponses[Math.floor(Math.random() * questionResponses.length)];
+        }
+
+        // Default response with personality
+        const defaultResponses = [
+            'I\'m here to help with school-related questions! I can answer about registration, our history, instructors, and the rest of the website. What would you like to know?',
+            'I know the full website content, including admissions, programs, faculty, history, and contact details. What can I assist you with?',
+            'Let\'s talk about San Isidro High School and its website. I can guide you through admissions, course programs, faculty, and campus information.',
+            'I specialize in school information and website navigation. Ask me about enrollment, history, faculty, programs, or any page on the site!',
+            'That\'s interesting! I know everything about this website, from admission requirements to gallery and faculty details. What would you like to learn?'
+        ];
+        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    }
+
+    function scrollToChatPanel() {
+        const chatCard = document.querySelector('.assist-card');
+        if (chatCard) {
+            chatCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    function sendMessage(text) {
+        if (!text.trim()) {
+            messageInput.focus();
+            return;
+        }
+
+        addChatBubble(text, 'user');
+        messageInput.value = '';
+
+        // Move the screen into view for the chat panel
+        scrollToChatPanel();
+
+        // Show typing indicator
+        const typingIndicator = showTypingIndicator();
+
+        // Simulate thinking time and respond
+        setTimeout(() => {
+            hideTypingIndicator(typingIndicator);
+            const reply = getAssistResponse(text);
+            addChatBubble(reply, 'assistant');
+            chatHistory.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end'
+            });
+        }, 800); // Slightly longer delay for better UX
+    }
+
+    if (sendBtn && messageInput && chatHistory) {
+        sendBtn.addEventListener('click', function () {
+            sendMessage(messageInput.value);
+        });
+
+        messageInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage(messageInput.value);
+            }
+        });
+    }
+
+    // Talk to AI button functionality
+    if (talkToAIButton) {
+        talkToAIButton.addEventListener('click', function () {
+            const chatCard = document.querySelector('.assist-card');
+            if (chatCard) {
+                chatCard.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Focus on the input after scrolling
+                setTimeout(() => {
+                    messageInput.focus();
+                }, 800);
+            }
+        });
+    }
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,387 @@
+{% extends "base.html" %}
+
+{% block title %}Faculty - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="faculty-header pt-5" style="background: linear-gradient(135deg, #159c60 0%, #28a745 100%); padding-bottom: 1rem;">
+    <div class="container-fluid px-4">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <div class="faculty-hero position-relative text-center" style="height: 180px; display: flex; align-items: center; justify-content: center; padding: 0 1rem;">
+                    <div>
+                        <h1 class="display-4 fw-bold mb-2 text-white">Our Faculty</h1>
+                        <p class="lead text-white">Meet the dedicated educators shaping tomorrow's leaders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center mt-2">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('about') }}">About</a></li>
+                        <li class="breadcrumb-item active">Faculty</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty Content -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <!-- Faculty Introduction -->
+        <div class="row mb-5" data-bg="{{ url_for('static', filename='images/5.jpg') }}" style="background-size: cover; background-position: center; border-radius: 12px; padding: 3rem 2rem;">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3 text-white">Dedicated Educators</h2>
+                <p class="lead text-white">
+                    Our faculty consists of experiencsed professionals committed to providing quality education
+                    and mentorship to our students. Each member brings unique expertise and passion to their teaching.
+                </p>
+            </div>
+        </div>
+
+        <!-- Faculty Grid -->
+        <div class="faculty-grid-wrapper" style="max-height: 920px; overflow-y: auto; overflow-x: hidden; padding-right: 0.5rem;">
+            <div class="row g-4">
+                <!-- Faculty Member 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/123.png') }}" data-name="Dr. Sarah Johnson" data-position="Principal" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/123.png') }}" alt="Dr. Sarah Johnson" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Dr. Sarah Johnson</h5>
+                            <p class="text-primary mb-2">Principal</p>
+                            <p class="text-muted small mb-3">Ph.D. in Education, 15+ years experience</p>
+                            <p class="card-text text-muted">
+                                Leading our institution with vision and dedication, Dr. Johnson specializes in
+                                educational leadership and curriculum development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty2.jpg') }}" data-name="Prof. Michael Chen" data-position="Mathematics Department Head" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty2.jpg') }}" alt="Prof. Michael Chen" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Prof. Michael Chen</h5>
+                            <p class="text-success mb-2">Mathematics Department Head</p>
+                            <p class="text-muted small mb-3">M.Sc. Mathematics, 12+ years teaching</p>
+                            <p class="card-text text-muted">
+                                Passionate about making mathematics accessible and enjoyable for all students,
+                                with expertise in advanced calculus and statistics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty3.jpg') }}" data-name="Ms. Emily Rodriguez" data-position="Science Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty3.jpg') }}" alt="Ms. Emily Rodriguez" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Ms. Emily Rodriguez</h5>
+                            <p class="text-info mb-2">Science Teacher</p>
+                            <p class="text-muted small mb-3">B.Sc. Biology, 8+ years experience</p>
+                            <p class="card-text text-muted">
+                                Dedicated to inspiring curiosity about the natural world through hands-on
+                                experiments and real-world applications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty4.jpg') }}" data-name="Mr. David Thompson" data-position="English Literature Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty4.jpg') }}" alt="Mr. David Thompson" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mr. David Thompson</h5>
+                            <p class="text-warning mb-2">English Literature Teacher</p>
+                            <p class="text-muted small mb-3">M.A. English Literature, 10+ years teaching</p>
+                            <p class="card-text text-muted">
+                                Fostering a love for literature and developing strong communication skills
+                                through classic and contemporary works.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty5.jpg') }}" data-name="Ms. Lisa Park" data-position="Computer Science Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty5.jpg') }}" alt="Ms. Lisa Park" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Ms. Lisa Park</h5>
+                            <p class="text-danger mb-2">Computer Science Teacher</p>
+                            <p class="text-muted small mb-3">B.Sc. Computer Science, 7+ years experience</p>
+                            <p class="card-text text-muted">
+                                Guiding students through the world of programming and technology,
+                                preparing them for the digital future.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty6.jpg') }}" data-name="Mr. James Wilson" data-position="Physical Education Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty6.jpg') }}" alt="Mr. James Wilson" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mr. James Wilson</h5>
+                            <p class="text-secondary mb-2">Physical Education Teacher</p>
+                            <p class="text-muted small mb-3">B.Sc. Sports Science, 9+ years teaching</p>
+                            <p class="card-text text-muted">
+                                Promoting physical fitness, teamwork, and healthy lifestyles through
+                                comprehensive sports and wellness programs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty7.jpg') }}" data-name="Mrs. Angela Rivera" data-position="Social Studies Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty7.jpg') }}" alt="Mrs. Angela Rivera" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mrs. Angela Rivera</h5>
+                            <p class="text-primary mb-2">Social Studies Teacher</p>
+                            <p class="text-muted small mb-3">M.A. History, 11+ years experience</p>
+                            <p class="card-text text-muted">
+                                Encouraging civic awareness and global perspective with engaging history lessons.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 8 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty8.jpg') }}" data-name="Mrs. Olivia Martinez" data-position="Language Arts Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty8.jpg') }}" alt="Mrs. Olivia Martinez" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mrs. Olivia Martinez</h5>
+                            <p class="text-success mb-2">Language Arts Teacher</p>
+                            <p class="text-muted small mb-3">B.A. English, 9+ years experience</p>
+                            <p class="card-text text-muted">
+                                Helping students build strong reading, writing, and critical thinking skills.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 9 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty9.jpg') }}" data-name="Mr. Kevin Brooks" data-position="Chemistry Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty9.jpg') }}" alt="Mr. Kevin Brooks" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mr. Kevin Brooks</h5>
+                            <p class="text-info mb-2">Chemistry Teacher</p>
+                            <p class="text-muted small mb-3">M.Sc. Chemistry, 8+ years experience</p>
+                            <p class="card-text text-muted">
+                                Creating energetic lab experiences and nurturing scientific inquiry for all learners.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 10 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty10.jpg') }}" data-name="Ms. Clara Nguyen" data-position="Art Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty10.jpg') }}" alt="Ms. Clara Nguyen" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Ms. Clara Nguyen</h5>
+                            <p class="text-warning mb-2">Art Teacher</p>
+                            <p class="text-muted small mb-3">B.F.A. in Visual Arts, 6+ years experience</p>
+                            <p class="card-text text-muted">
+                                Inspiring creativity and confidence through expressive arts projects and design.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 11 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty11.jpg') }}" data-name="Mr. Aaron Kim" data-position="Geography Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty11.jpg') }}" alt="Mr. Aaron Kim" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mr. Aaron Kim</h5>
+                            <p class="text-success mb-2">Geography Teacher</p>
+                            <p class="text-muted small mb-3">M.A. Geography, 7+ years experience</p>
+                            <p class="card-text text-muted">
+                                Connecting students with the world through maps, cultures, and environmental studies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 12 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty12.jpg') }}" data-name="Ms. Priya Sharma" data-position="Accounting Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty12.jpg') }}" alt="Ms. Priya Sharma" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Ms. Priya Sharma</h5>
+                            <p class="text-primary mb-2">Accounting Teacher</p>
+                            <p class="text-muted small mb-3">B.Com Accounting, 10+ years experience</p>
+                            <p class="card-text text-muted">
+                                Preparing students for financial literacy and real-world business applications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 13 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty13.jpg') }}" data-name="Mr. Samuel Torres" data-position="Music Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty13.jpg') }}" alt="Mr. Samuel Torres" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Mr. Samuel Torres</h5>
+                            <p class="text-info mb-2">Music Teacher</p>
+                            <p class="text-muted small mb-3">B.Mus, 8+ years experience</p>
+                            <p class="card-text text-muted">
+                                Encouraging musical expression and performance through choir and instrumental study.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 14 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty14.jpg') }}" data-name="Ms. Nina Patel" data-position="IT Support Instructor" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty14.jpg') }}" alt="Ms. Nina Patel" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Ms. Nina Patel</h5>
+                            <p class="text-warning mb-2">IT Support Instructor</p>
+                            <p class="text-muted small mb-3">B.Sc. IT, 5+ years experience</p>
+                            <p class="card-text text-muted">
+                                Supporting digital learning across campus and teaching tech literacy to students.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 15 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm faculty-card cursor-pointer" data-image="{{ url_for('static', filename='images/faculty15.jpg') }}" data-name="Dr. Maria Lopez" data-position="Health Science Teacher" style="cursor: pointer;">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle mx-auto mb-3 overflow-hidden" style="width: 120px; height: 120px;">
+                                <img src="{{ url_for('static', filename='images/faculty15.jpg') }}" alt="Dr. Maria Lopez" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                            <h5 class="card-title fw-bold">Dr. Maria Lopez</h5>
+                            <p class="text-danger mb-2">Health Science Teacher</p>
+                            <p class="text-muted small mb-3">Ph.D. Health Education, 9+ years experience</p>
+                            <p class="card-text text-muted">
+                                Leading health education with a focus on wellness, nutrition, and preventive care.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Faculty Modal Preview -->
+        <div id="facultyModal" class="faculty-modal" style="display: none;">
+            <div class="modal-backdrop" onclick="closeFacultyModal()"></div>
+            <div class="modal-content">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="Faculty Member" class="modal-image">
+                </div>
+                <h2 id="modalName" class="modal-name"></h2>
+                <p id="modalPosition" class="modal-position"></p>
+                <button class="btn btn-success btn-sm" onclick="closeFacultyModal()">Close</button>
+            </div>
+        </div>
+
+        <!-- Contact Faculty -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-light rounded-4 p-4">
+                    <h3 class="fw-bold mb-3">Connect with Our Faculty</h3>
+                    <p class="text-muted mb-4">
+                        Our faculty members are always available to support student learning and development.
+                        Feel free to reach out for academic guidance or mentorship.
+                    </p>
+                    <a href="mailto:faculty@{{ school.domain }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Contact Faculty
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function showFacultyModal(imageSrc, name, position) {
+    const modal = document.getElementById('facultyModal');
+    document.getElementById('modalImage').src = imageSrc;
+    document.getElementById('modalName').textContent = name;
+    document.getElementById('modalPosition').textContent = position;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFacultyModal() {
+    const modal = document.getElementById('facultyModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Attach click handlers to faculty cards
+document.addEventListener('DOMContentLoaded', function() {
+    const facultyCards = document.querySelectorAll('.faculty-card');
+    facultyCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const image = this.dataset.image;
+            const name = this.dataset.name;
+            const position = this.dataset.position;
+            showFacultyModal(image, name, position);
+        });
+    });
+
+    const facultyIntro = document.querySelector('[data-bg]');
+    if (facultyIntro) {
+        const bgUrl = facultyIntro.dataset.bg;
+        facultyIntro.style.background = `linear-gradient(135deg, rgba(21, 156, 96, 0.85) 0%, rgba(40, 167, 69, 0.85) 100%), url(${bgUrl})`;
+    }
+});
+
+// Close modal when pressing Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeFacultyModal();
+    }
+});
+</script>
+
+{% endblock %}

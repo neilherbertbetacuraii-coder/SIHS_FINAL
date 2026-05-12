@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Mission & Vision - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Mission & Vision</h1>
+                <p class="lead text-muted">Our guiding principles and aspirations for excellence</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('about') }}">About</a></li>
+                        <li class="breadcrumb-item active">Mission & Vision</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision Content -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row g-5">
+            <!-- Vision -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-eye text-white fa-lg"></i>
+                            </div>
+                            <h2 class="h3 fw-bold mb-0">Our Vision</h2>
+                        </div>
+                        <p class="text-muted mb-3">
+                            To be a leading educational institution that inspires excellence, fosters innovation,
+                            and develops compassionate global citizens who contribute positively to society.
+                        </p>
+                        <p class="text-muted">
+                            We envision a future where our students become leaders in their fields, equipped with
+                            the knowledge, skills, and values necessary to navigate an ever-changing world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-target text-white fa-lg"></i>
+                            </div>
+                            <h2 class="h3 fw-bold mb-0">Our Mission</h2>
+                        </div>
+                        <p class="text-muted mb-3">
+                            To provide a nurturing environment that promotes academic excellence, personal growth,
+                            and character development through innovative teaching methods and comprehensive learning experiences.
+                        </p>
+                        <p class="text-muted">
+                            We are committed to developing well-rounded individuals who excel academically,
+                            demonstrate strong moral character, and possess the skills needed for lifelong success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="h1 fw-bold text-center mb-5">Core Values</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center">
+                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-graduation-cap text-white fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Excellence</h5>
+                            <p class="text-muted small">Striving for the highest standards in all endeavors</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center">
+                            <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-heart text-white fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Integrity</h5>
+                            <p class="text-muted small">Honesty, ethics, and moral character in all actions</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center">
+                            <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-users text-white fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Community</h5>
+                            <p class="text-muted small">Building strong relationships and collaboration</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center">
+                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                <i class="fas fa-lightbulb text-white fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Innovation</h5>
+                            <p class="text-muted small">Embracing new ideas and creative solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

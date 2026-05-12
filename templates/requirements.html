@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block title %}Admission Requirements - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Admission Requirements</h1>
+                <p class="lead text-muted">What you need to know to join our school community</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('how_to_apply') }}">How to Apply</a></li>
+                        <li class="breadcrumb-item active">Requirements</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Requirements Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Holistic Admission Process</h2>
+                <p class="lead text-muted">
+                    We look beyond grades and test scores to find students who will thrive in our community.
+                    Our admission requirements ensure we build a diverse and talented student body.
+                </p>
+            </div>
+        </div>
+
+        <!-- Grade-specific Requirements -->
+        <div class="row g-4">
+            <!-- Elementary School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-school me-2"></i>Elementary (Grades 1-5)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3">Academic Requirements</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Age appropriate for grade level</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Previous school records (if applicable)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic readiness assessment</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Parent interview</li>
+                        </ul>
+
+                        <h5 class="fw-bold mb-3">Health & Safety</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Complete immunization records</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Physical examination (within 1 year)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Dental examination (within 1 year)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Vision screening</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-graduation-cap me-2"></i>Middle School (Grades 6-8)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3">Academic Requirements</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Strong elementary school record</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Teacher recommendations (2)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Math and English placement assessment</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Student interview</li>
+                        </ul>
+
+                        <h5 class="fw-bold mb-3">Additional Requirements</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Complete immunization records</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Physical examination (within 1 year)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Discipline/behavior records</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Extracurricular activities summary</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-university me-2"></i>High School (Grades 9-12)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3">Academic Requirements</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Minimum GPA: 3.0 (unweighted)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Strong middle school record</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Standardized test scores (optional)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Teacher/counselor recommendations (2)</li>
+                        </ul>
+
+                        <h5 class="fw-bold mb-3">Assessment Requirements</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>English proficiency assessment</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mathematics placement exam</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Student interview</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Writing sample</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Universal Requirements -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-clipboard-list me-2"></i>Universal Requirements for All Applicants</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Documentation</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-file-alt text-warning me-2"></i>Birth certificate or passport</li>
+                                    <li class="mb-2"><i class="fas fa-file-alt text-warning me-2"></i>Proof of residency</li>
+                                    <li class="mb-2"><i class="fas fa-file-alt text-warning me-2"></i>Parent/guardian identification</li>
+                                    <li class="mb-2"><i class="fas fa-file-alt text-warning me-2"></i>Emergency contact information</li>
+                                    <li><i class="fas fa-file-alt text-warning me-2"></i>Application fee payment ($150)</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Health & Safety</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-shield-alt text-warning me-2"></i>Complete immunization records</li>
+                                    <li class="mb-2"><i class="fas fa-shield-alt text-warning me-2"></i>Physical examination report</li>
+                                    <li class="mb-2"><i class="fas fa-shield-alt text-warning me-2"></i>Health insurance information</li>
+                                    <li class="mb-2"><i class="fas fa-shield-alt text-warning me-2"></i>Allergy and medical conditions</li>
+                                    <li><i class="fas fa-shield-alt text-warning me-2"></i>Medication administration forms</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Language Requirements -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-language me-2"></i>English Language Proficiency</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <h5 class="fw-bold mb-3">For Non-Native English Speakers</h5>
+                                <p class="text-muted mb-3">
+                                    Students whose primary language is not English may be required to demonstrate
+                                    English proficiency through one of the following:
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-info me-2"></i>TOEFL iBT score of 80 or higher</li>
+                                    <li class="mb-2"><i class="fas fa-check text-info me-2"></i>IELTS score of 6.5 or higher</li>
+                                    <li class="mb-2"><i class="fas fa-check text-info me-2"></i>Duolingo English Test score of 110 or higher</li>
+                                    <li class="mb-2"><i class="fas fa-check text-info me-2"></i>WIDA ACCESS test (for current students)</li>
+                                    <li><i class="fas fa-check text-info me-2"></i>Internal English assessment (arranged by school)</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="bg-light rounded p-3">
+                                    <h6 class="fw-bold text-info mb-2">ESL Support Available</h6>
+                                    <p class="text-muted small mb-0">
+                                        We offer comprehensive English as a Second Language support
+                                        for students who need additional language development.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transfer Students -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-exchange-alt me-2"></i>Additional Requirements for Transfer Students</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Academic Records</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Official transcripts from all previous schools</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Course descriptions and syllabi</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Grade reports and progress reports</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Standardized test scores (if available)</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Academic awards and honors</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Conduct & Records</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Discipline records and incident reports</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Attendance records</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Transfer certificate/letter</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Counselor recommendation</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Extracurricular activities documentation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <h6 class="fw-bold text-success mb-2">Credit Transfer Policy</h6>
+                            <p class="text-muted mb-0">
+                                Transfer credits are evaluated on a case-by-case basis. Our academic counselors
+                                will review your previous coursework to determine appropriate placement and credit transfer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Considerations -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-secondary text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-hands-helping me-2"></i>Special Considerations & Accommodations</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Learning Differences</h5>
+                                <p class="text-muted mb-3">
+                                    Students with documented learning differences or disabilities are welcome to apply.
+                                    We provide comprehensive support services.
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>IEP (Individualized Education Program)</li>
+                                    <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>504 Plan documentation</li>
+                                    <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>Psychological evaluations</li>
+                                    <li><i class="fas fa-star text-secondary me-2"></i>Accommodations history</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Advanced Learners</h5>
+                                <p class="text-muted mb-3">
+                                    Gifted and talented students receive additional documentation requirements
+                                    to ensure appropriate academic placement.
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>IQ test results</li>
+                                    <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>Achievement test scores</li>
+                                    <li class="mb-1"><i class="fas fa-star text-secondary me-2"></i>Portfolio of work</li>
+                                    <li><i class="fas fa-star text-secondary me-2"></i>Teacher recommendations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-light rounded-4 p-5">
+                    <h2 class="h1 fw-bold mb-4">Questions About Requirements?</h2>
+                    <p class="lead text-muted mb-4">
+                        Our admissions team is here to help you understand our requirements and guide you
+                        through the application process.
+                    </p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <a href="mailto:admissions@{{ school.domain }}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Email Admissions
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="tel:+15551234567" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-phone me-2"></i>Call (555) 123-4567
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ url_for('how_to_apply') }}" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Application Process
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - {{ school.name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+.contact-card {
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+.contact-info-item {
+    background: rgba(13, 110, 253, 0.05);
+    border-radius: 16px;
+}
+.map-responsive {
+    border-radius: 24px;
+    overflow: hidden;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Contact Us</h1>
+                <p class="lead text-muted">Get in touch with {{ school.name }} for admissions, events, and support.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row g-4">
+            <div class="col-xl-6">
+                <div class="contact-card p-4 bg-white mb-4">
+                    <h2 class="fw-bold mb-3">Reach the {{ school.name }} Team</h2>
+                    <p class="text-muted mb-4">Our team is here to help students, parents, and community members with admissions, programs, and campus information.</p>
+                    <div class="row g-3">
+                        <div class="col-12 contact-info-item p-3 d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Phone</h6>
+                                <p class="mb-0 text-muted">{{ school.phone }}</p>
+                            </div>
+                        </div>
+                        <div class="col-12 contact-info-item p-3 d-flex align-items-center gap-3">
+                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Email</h6>
+                                <p class="mb-0 text-muted">{{ school.email }}</p>
+                            </div>
+                        </div>
+                        <div class="col-12 contact-info-item p-3 d-flex align-items-center gap-3">
+                            <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Address</h6>
+                                <p class="mb-0 text-muted">{{ school.address }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-4 bg-white">
+                    <h2 class="fw-bold mb-3">Send Us a Message</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="contactName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Your name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="contactEmail" placeholder="your@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactSubject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="contactSubject" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-xl-6">
+                <div class="contact-card p-4 bg-white mb-4">
+                    <h2 class="fw-bold mb-3">Office Hours</h2>
+                    <p class="text-muted mb-4">Visit, call, or message us during regular office hours for prompt assistance.</p>
+                    <ul class="list-unstyled">
+                        <li class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Monday - Friday</span>
+                            <strong>8:00 AM - 5:00 PM</strong>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Saturday</span>
+                            <strong>9:00 AM - 1:00 PM</strong>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>Sunday</span>
+                            <strong>Closed</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-card p-4 bg-white map-responsive">
+                    <h2 class="fw-bold mb-3">Find Us</h2>
+                    <iframe src="https://maps.google.com/maps?q=Poblacion,%20Kadingilan,%20Bukidnon&output=embed" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <p class="text-muted small mt-3">Use the address above to find our main campus in Poblacion, Kadingilan, Bukidnon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

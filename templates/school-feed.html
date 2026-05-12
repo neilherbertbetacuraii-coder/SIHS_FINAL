@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Feed - {{ school.name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+.feed-post {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+.feed-post .post-meta {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+.feed-post .post-actions a {
+    color: #6c757d;
+}
+.feed-post .post-actions a:hover {
+    color: var(--primary-color);
+}
+.feed-sidebar .sidebar-card {
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+.feed-sidebar .badge-status {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Feed</h1>
+                <p class="lead text-muted">Stay connected with updates from {{ school.name }}, student stories, events, and announcements.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Feed</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row g-4">
+            <div class="col-xl-8">
+                <div class="feed-post p-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                            <i class="fas fa-school fa-lg"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1 fw-bold">{{ school.name }} Administration</h5>
+                            <p class="post-meta mb-0">Posted 1h ago · Announcements</p>
+                        </div>
+                    </div>
+                    <h3 class="h4 fw-bold">New enrichment clubs launching this semester</h3>
+                    <p class="text-muted">We are excited to introduce five new after-school clubs focused on robotics, creative writing, environmental leadership, performing arts, and community service. Students are invited to join the information fair next Tuesday in the main hall.</p>
+                    <div class="post-actions d-flex flex-wrap gap-3 pt-3 border-top mt-3">
+                        <a href="#" class="text-decoration-none"><i class="fas fa-thumbs-up me-2"></i>Like</a>
+                        <a href="#" class="text-decoration-none"><i class="fas fa-comment me-2"></i>Comment</a>
+                        <a href="#" class="text-decoration-none"><i class="fas fa-share me-2"></i>Share</a>
+                    </div>
+                </div>
+
+                <div class="feed-post p-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1 fw-bold">Student Life Team</h5>
+                            <p class="post-meta mb-0">Posted 3h ago · Student Life</p>
+                        </div>
+                    </div>
+                    <h3 class="h4 fw-bold">Highlights from this week's student council meeting</h3>
+                    <p class="text-muted">Student council representatives discussed upcoming spirit week themes, new volunteer events, and a mentoring program matching younger students with senior buddies. Stay tuned for more ways to get involved.</p>
+                    <div class="post-actions d-flex flex-wrap gap-3 pt-3 border-top mt-3">
+                        <a href="#" class="text-decoration-none"><i class="fas fa-thumbs-up me-2"></i>Like</a>
+                        <a href="#" class="text-decoration-none"><i class="fas fa-comment me-2"></i>Comment</a>
+                        <a href="#" class="text-decoration-none"><i class="fas fa-share me-2"></i>Share</a>
+                    </div>
+                </div>
+
+                <div class="feed-post p-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1 fw-bold">Academic Office</h5>
+                            <p class="post-meta mb-0">Posted yesterday · Education</p>
+                        </div>
+                    </div>
+                    <h3 class="h4 fw-bold">Midterm review sessions available</h3>
+                    <p class="text-muted">Weekly review workshops are now open for registration. Students can sign up for targeted sessions in math, science, literature, and language arts. Teachers will provide practice materials and exam strategies.</p>
+                    <div class="post-actions d-flex flex-wrap gap-3 pt-3 border-top mt-3">
+                        <a href="#" class="text-decoration-none"><i class="fas fa-thumbs-up me-2"></i>Like</a>
+                        <a href="#" class="text-decoration-none"><i class="fas fa-comment me-2"></i>Comment</a>
+                        <a href="#" class="text-decoration-none"><i class="fas fa-share me-2"></i>Share</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 feed-sidebar">
+                <div class="sidebar-card p-4 mb-4 bg-white">
+                    <h4 class="fw-bold mb-3">Today at {{ school.name }}</h4>
+                    <p class="text-muted mb-4">Live updates, event reminders, and student experiences—all in one feed.</p>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="badge bg-success badge-status me-2">Live</span>
+                        <span class="text-muted">Senior Science Fair starts at 3:00 PM</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="badge bg-primary badge-status me-2">Event</span>
+                        <span class="text-muted">Campus tour for prospective families at 10:00 AM</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="badge bg-warning badge-status me-2">Reminder</span>
+                        <span class="text-muted">Submit artwork for the cultural showcase by Friday</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card p-4 mb-4 bg-white">
+                    <h4 class="fw-bold mb-3">Trending Topics</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-3">
+                            <h6 class="mb-1">#InnovationDay</h6>
+                            <p class="text-muted small mb-0">Student teams present STEM projects in the auditorium.</p>
+                        </li>
+                        <li class="mb-3">
+                            <h6 class="mb-1">#CreativeArts</h6>
+                            <p class="text-muted small mb-0">New gallery installations from the art academy.</p>
+                        </li>
+                        <li>
+                            <h6 class="mb-1">#HealthyCampus</h6>
+                            <p class="text-muted small mb-0">Wellness workshops begin next Wednesday.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card p-4 bg-white">
+                    <h4 class="fw-bold mb-3">Quick Links</h4>
+                    <div class="list-group">
+                        <a href="{{ url_for('programs') }}" class="list-group-item list-group-item-action">Academic Programs</a>
+                        <a href="{{ url_for('how_to_apply') }}" class="list-group-item list-group-item-action">Apply Now</a>
+                        <a href="{{ url_for('contact') }}" class="list-group-item list-group-item-action">Contact Admissions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+
+{% block title %}Curriculum - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Curriculum</h1>
+                <p class="lead text-muted">Comprehensive learning framework designed for academic excellence</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('academic_programs') }}">Academic Programs</a></li>
+                        <li class="breadcrumb-item active">Curriculum</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Curriculum Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Structured Learning Path</h2>
+                <p class="lead text-muted">
+                    Our curriculum is carefully designed to provide a balanced education that develops
+                    intellectual abilities, character, and practical skills for the 21st century.
+                </p>
+            </div>
+        </div>
+
+        <!-- Curriculum by Grade Level -->
+        <div class="row g-4">
+            <!-- Elementary Curriculum -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-school me-2"></i>Elementary Curriculum (Grades 1-5)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-primary">Core Subjects</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-book text-muted me-2"></i>English Language Arts</li>
+                                    <li class="mb-2"><i class="fas fa-calculator text-muted me-2"></i>Mathematics</li>
+                                    <li class="mb-2"><i class="fas fa-flask text-muted me-2"></i>Science</li>
+                                    <li><i class="fas fa-globe text-muted me-2"></i>Social Studies</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-success">Specialized Areas</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-palette text-muted me-2"></i>Visual Arts</li>
+                                    <li class="mb-2"><i class="fas fa-music text-muted me-2"></i>Music</li>
+                                    <li class="mb-2"><i class="fas fa-running text-muted me-2"></i>Physical Education</li>
+                                    <li><i class="fas fa-heart text-muted me-2"></i>Character Education</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-muted small">
+                                <strong>Focus:</strong> Building foundational skills, fostering curiosity,
+                                and developing social-emotional learning through play-based and experiential learning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle School Curriculum -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-graduation-cap me-2"></i>Middle School Curriculum (Grades 6-8)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-success">Core Subjects</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-book text-muted me-2"></i>English Language Arts</li>
+                                    <li class="mb-2"><i class="fas fa-calculator text-muted me-2"></i>Mathematics</li>
+                                    <li class="mb-2"><i class="fas fa-flask text-muted me-2"></i>Science (Biology, Chemistry, Physics)</li>
+                                    <li><i class="fas fa-globe text-muted me-2"></i>Social Studies & History</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-info">Electives & Languages</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-language text-muted me-2"></i>Foreign Languages</li>
+                                    <li class="mb-2"><i class="fas fa-palette text-muted me-2"></i>Arts & Design</li>
+                                    <li class="mb-2"><i class="fas fa-laptop text-muted me-2"></i>Computer Science</li>
+                                    <li><i class="fas fa-users text-muted me-2"></i>Leadership & Service</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-muted small">
+                                <strong>Focus:</strong> Developing critical thinking, independent learning,
+                                and subject-specific expertise while exploring personal interests and career paths.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- High School Curriculum -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-university me-2"></i>High School Curriculum (Grades 9-12)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-3 col-md-6">
+                                <h5 class="fw-bold text-info">English & Literature</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-book-open text-muted me-2"></i>American Literature</li>
+                                    <li class="mb-2"><i class="fas fa-book-open text-muted me-2"></i>World Literature</li>
+                                    <li class="mb-2"><i class="fas fa-pen text-muted me-2"></i>Creative Writing</li>
+                                    <li><i class="fas fa-microphone text-muted me-2"></i>Public Speaking</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <h5 class="fw-bold text-warning">Mathematics & Science</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-square-root-alt text-muted me-2"></i>Advanced Algebra & Calculus</li>
+                                    <li class="mb-2"><i class="fas fa-atom text-muted me-2"></i>Physics & Chemistry</li>
+                                    <li class="mb-2"><i class="fas fa-dna text-muted me-2"></i>Biology & Environmental Science</li>
+                                    <li><i class="fas fa-flask text-muted me-2"></i>Research Methods</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <h5 class="fw-bold text-danger">Social Sciences</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-landmark text-muted me-2"></i>World History</li>
+                                    <li class="mb-2"><i class="fas fa-flag-usa text-muted me-2"></i>US History & Government</li>
+                                    <li class="mb-2"><i class="fas fa-euro text-muted me-2"></i>Economics</li>
+                                    <li><i class="fas fa-balance-scale text-muted me-2"></i>Psychology & Sociology</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <h5 class="fw-bold text-secondary">Electives & Career Prep</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-code text-muted me-2"></i>Computer Science & Programming</li>
+                                    <li class="mb-2"><i class="fas fa-camera text-muted me-2"></i>Digital Media & Design</li>
+                                    <li class="mb-2"><i class="fas fa-business-time text-muted me-2"></i>Business & Entrepreneurship</li>
+                                    <li><i class="fas fa-user-graduate text-muted me-2"></i>College Counseling</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-muted">
+                                <strong>Focus:</strong> College and career preparation with Advanced Placement courses,
+                                internships, research projects, and personalized learning plans to meet individual goals and aspirations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assessment & Evaluation -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="h1 fw-bold text-center mb-5">Assessment & Evaluation</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-clipboard-check text-white fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold">Continuous Assessment</h5>
+                                <p class="text-muted">
+                                    Regular quizzes, projects, and assignments provide ongoing feedback
+                                    on student progress and understanding.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-chart-line text-white fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold">Performance Standards</h5>
+                                <p class="text-muted">
+                                    Clear learning objectives and rubrics ensure consistent evaluation
+                                    and help students understand expectations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <div class="card-body p-4">
+                                <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-users-cog text-white fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold">Personalized Support</h5>
+                                <p class="text-muted">
+                                    Individual learning plans and additional support ensure every
+                                    student can achieve their full potential.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Curriculum Guide -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-light rounded-4 p-4">
+                    <h3 class="fw-bold mb-3">Download Our Curriculum Guide</h3>
+                    <p class="text-muted mb-4">
+                        Get detailed information about our curriculum, course descriptions, and learning objectives.
+                        Available for all grade levels.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-download me-2"></i>Elementary Curriculum
+                        </a>
+                        <a href="#" class="btn btn-success">
+                            <i class="fas fa-download me-2"></i>Middle School Curriculum
+                        </a>
+                        <a href="#" class="btn btn-info">
+                            <i class="fas fa-download me-2"></i>High School Curriculum
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

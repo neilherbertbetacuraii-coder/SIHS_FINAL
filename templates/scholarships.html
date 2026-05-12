@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+
+{% block title %}Scholarships - {{ school.name }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header py-5 bg-light">
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-primary mb-2">Scholarships & Financial Aid</h1>
+                <p class="lead text-muted">Investing in your future through merit and need-based awards</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('fees') }}">Fees</a></li>
+                        <li class="breadcrumb-item active">Scholarships</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scholarships Overview -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Opportunities for Excellence</h2>
+                <p class="lead text-muted">
+                    We believe that financial barriers should never prevent a qualified student from
+                    receiving an excellent education. Our comprehensive scholarship program rewards achievement and supports need.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scholarship Types -->
+        <div class="row g-4 mb-5">
+            <!-- Academic Excellence -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-graduation-cap text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Academic Excellence</h4>
+                        <p class="text-muted mb-3">
+                            For students demonstrating outstanding academic achievement and intellectual promise.
+                        </p>
+                        <div class="h5 text-primary mb-2">$5,000 - $10,000</div>
+                        <small class="text-muted">per year</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arts & Athletics -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="bg-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-palette text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Arts & Athletics</h4>
+                        <p class="text-muted mb-3">
+                            Recognizing exceptional talent in visual arts, music, theater, and competitive sports.
+                        </p>
+                        <div class="h5 text-success mb-2">$3,000 - $8,000</div>
+                        <small class="text-muted">per year</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership & Service -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="bg-info rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-hands-helping text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Leadership & Service</h4>
+                        <p class="text-muted mb-3">
+                            For students who demonstrate leadership qualities and commitment to community service.
+                        </p>
+                        <div class="h5 text-info mb-2">$2,000 - $6,000</div>
+                        <small class="text-muted">per year</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Major Scholarships -->
+        <div class="row g-4">
+            <!-- Presidential Scholarship -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h4 class="mb-0"><i class="fas fa-crown me-2"></i>Presidential Scholarship</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row align-items-center mb-3">
+                            <div class="col-auto">
+                                <div class="h3 text-warning mb-0">$15,000</div>
+                                <small class="text-muted">per year</small>
+                            </div>
+                            <div class="col">
+                                <span class="badge bg-warning text-dark">Full Tuition Coverage</span>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Eligibility Criteria</h5>
+                        <ul class="list-unstyled mb-3">
+                            <li class="mb-1"><i class="fas fa-check text-warning me-2"></i>GPA of 4.0 or higher</li>
+                            <li class="mb-1"><i class="fas fa-check text-warning me-2"></i>Top 5% of class academically</li>
+                            <li class="mb-1"><i class="fas fa-check text-warning me-2"></i>Outstanding leadership record</li>
+                            <li class="mb-1"><i class="fas fa-check text-warning me-2"></i>Significant community service</li>
+                            <li><i class="fas fa-check text-warning me-2"></i>Strong letters of recommendation</li>
+                        </ul>
+                        <p class="text-muted small">
+                            <strong>Application Deadline:</strong> December 1st • <strong>Recipients:</strong> 2 per year
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dean's Scholarship -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0"><i class="fas fa-star me-2"></i>Dean's Scholarship</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row align-items-center mb-3">
+                            <div class="col-auto">
+                                <div class="h3 text-info mb-0">$12,000</div>
+                                <small class="text-muted">per year</small>
+                            </div>
+                            <div class="col">
+                                <span class="badge bg-info">80% Tuition Coverage</span>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Eligibility Criteria</h5>
+                        <ul class="list-unstyled mb-3">
+                            <li class="mb-1"><i class="fas fa-check text-info me-2"></i>GPA of 3.8 or higher</li>
+                            <li class="mb-1"><i class="fas fa-check text-info me-2"></i>Top 10% of class academically</li>
+                            <li class="mb-1"><i class="fas fa-check text-info me-2"></i>Strong extracurricular involvement</li>
+                            <li class="mb-1"><i class="fas fa-check text-info me-2"></i>Demonstrated leadership potential</li>
+                            <li><i class="fas fa-check text-info me-2"></i>Excellent teacher recommendations</li>
+                        </ul>
+                        <p class="text-muted small">
+                            <strong>Application Deadline:</strong> January 15th • <strong>Recipients:</strong> 5 per year
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialized Scholarships -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-award me-2"></i>Specialized Scholarships</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="border rounded p-3 h-100">
+                                    <h5 class="fw-bold text-success mb-2">STEM Excellence</h5>
+                                    <p class="text-muted small mb-2">For students excelling in Science, Technology, Engineering, and Math</p>
+                                    <div class="h6 text-success mb-1">$4,000/year</div>
+                                    <small class="text-muted">2 awards available</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="border rounded p-3 h-100">
+                                    <h5 class="fw-bold text-primary mb-2">Creative Arts</h5>
+                                    <p class="text-muted small mb-2">Supporting visual arts, music, theater, and creative writing talents</p>
+                                    <div class="h6 text-primary mb-1">$3,500/year</div>
+                                    <small class="text-muted">3 awards available</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="border rounded p-3 h-100">
+                                    <h5 class="fw-bold text-info mb-2">Global Citizenship</h5>
+                                    <p class="text-muted small mb-2">For students demonstrating international awareness and cultural exchange</p>
+                                    <div class="h6 text-info mb-1">$3,000/year</div>
+                                    <small class="text-muted">2 awards available</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Aid Process -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-hand-holding-heart me-2"></i>Financial Aid Process</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Need-Based Aid</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-primary me-2"></i>FAFSA application required</li>
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-primary me-2"></i>Tax returns and financial documents</li>
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-primary me-2"></i>Up to 50% tuition assistance</li>
+                                    <li class="mb-2"><i class="fas fa-dollar-sign text-primary me-2"></i>Renewable based on continued need</li>
+                                    <li><i class="fas fa-dollar-sign text-primary me-2"></i>Work-study opportunities available</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="fw-bold mb-3">Application Timeline</h5>
+                                <div class="timeline">
+                                    <div class="timeline-item mb-3">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                                    <span class="text-white fw-bold small">1</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1">Submit FAFSA</h6>
+                                                <p class="text-muted small mb-0">October 1st - March 15th</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item mb-3">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                                    <span class="text-white fw-bold small">2</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1">Complete Scholarship Applications</h6>
+                                                <p class="text-muted small mb-0">December 1st - February 1st</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                                    <span class="text-white fw-bold small">3</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1">Award Notifications</h6>
+                                                <p class="text-muted small mb-0">March 15th - April 15th</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Instructions -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h3 class="h4 mb-0"><i class="fas fa-clipboard-list me-2"></i>How to Apply for Scholarships</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <h5 class="fw-bold mb-3">Application Requirements</h5>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i>Completed admission application</li>
+                                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i>Academic transcripts and test scores</li>
+                                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i>Two teacher recommendation letters</li>
+                                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i>Personal essay (500 words)</li>
+                                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i>Extracurricular activity documentation</li>
+                                    <li><i class="fas fa-check text-warning me-2"></i>Financial aid application (if applying for need-based aid)</li>
+                                </ul>
+                                <p class="text-muted">
+                                    <strong>Essay Prompt:</strong> "Describe how you have demonstrated leadership or made a positive impact
+                                    in your school or community. What challenges did you face, and what did you learn from the experience?"
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="bg-light rounded p-3">
+                                    <h6 class="fw-bold text-warning mb-2">Important Notes</h6>
+                                    <ul class="list-unstyled small">
+                                        <li class="mb-2"><i class="fas fa-info-circle text-warning me-2"></i>All scholarships are renewable</li>
+                                        <li class="mb-2"><i class="fas fa-info-circle text-warning me-2"></i>Maintain 3.0 GPA to retain award</li>
+                                        <li class="mb-2"><i class="fas fa-info-circle text-warning me-2"></i>Separate application required</li>
+                                        <li class="mb-2"><i class="fas fa-info-circle text-warning me-2"></i>Early application recommended</li>
+                                        <li><i class="fas fa-info-circle text-warning me-2"></i>Deadlines are firm</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-light rounded-4 p-5">
+                    <h2 class="h1 fw-bold mb-4">Questions About Scholarships?</h2>
+                    <p class="lead text-muted mb-4">
+                        Our financial aid team is dedicated to helping families understand their options
+                        and maximize their financial aid opportunities.
+                    </p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <a href="mailto:financialaid@{{ school.domain }}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Contact Financial Aid
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="tel:+15551234567" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-phone me-2"></i>Call (555) 123-4567
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ url_for('how_to_apply') }}" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-edit me-2"></i>Start Your Application
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <small>Scholarship amounts and availability are subject to change. Contact us for the most current information.</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
